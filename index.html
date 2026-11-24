@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Reachworth — the business behind influence. Explore the businesses creators build, own and invest in." />
+<title>Reachworth — The business behind influence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#fbf9f5; --ink:#111; --muted:#5d5a57; --faint:#8a847d; --line:#e7e1d9; --line2:#d9d2c8;
+  --peach:#f6d9c9; --peach2:#f9e3d6; --clay:#c97b56; --soft:#f4f0ea; --green:#286344; --greenbg:#e3efe6; --red:#9b3b2e; --redbg:#f6e1dc;
+  --serif:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --shadow:0 1px 2px rgba(17,17,17,.04),0 8px 28px rgba(17,17,17,.07);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:var(--sans);-webkit-font-smoothing:antialiased;line-height:1.45}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--ink);outline-offset:2px;border-radius:6px}
+.wrap{width:min(1280px,calc(100% - 64px));margin:0 auto}
+.narrow{width:min(760px,calc(100% - 40px));margin:0 auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.muted{color:var(--muted)} .faint{color:var(--faint)}
+h1,h2,h3{font-family:var(--serif);font-weight:600}
+h2{font-size:34px;letter-spacing:-1px;margin:0;line-height:1.08}
+.eyebrow{text-transform:uppercase;letter-spacing:.09em;font-size:12px;font-weight:700}
+.meta{font-size:11px;letter-spacing:.07em;color:#77716b;text-transform:uppercase;font-weight:500}
+.fade{animation:fade .4s ease both}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.underline{position:relative;white-space:nowrap;isolation:isolate}
+.underline:after{content:"";position:absolute;z-index:-1;left:-2px;right:-2px;bottom:3px;height:11px;border-radius:100%;background:var(--peach);transform:rotate(-1.3deg)}
+
+/* header */
+header.top{position:sticky;top:0;z-index:40;background:rgba(251,249,245,.9);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid var(--line)}
+.nav{height:70px;display:flex;align-items:center;gap:28px}
+.brand{font-family:var(--serif);font-size:26px;font-weight:700;letter-spacing:-1px;display:flex;align-items:center;gap:9px}
+.brand .logo{width:28px;height:28px;border-radius:8px;background:var(--ink);display:grid;place-items:center}
+.navlinks{display:flex;gap:2px;font-size:14px;font-weight:500}
+.navlinks a{padding:8px 13px;border-radius:999px;color:#3a3734}
+.navlinks a:hover{background:var(--soft)}
+.navlinks a.active{background:var(--ink);color:#fff}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:8px}
+.kbtn{display:flex;align-items:center;gap:8px;border:1px solid var(--line2);background:#fff;border-radius:10px;padding:8px 11px;font-size:13px;color:var(--muted)}
+.kbtn kbd{font-family:var(--sans);font-size:11px;border:1px solid var(--line2);border-radius:5px;padding:0 5px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;border-radius:10px;padding:10px 16px;font-size:14px;font-weight:600;border:1px solid transparent;white-space:nowrap;transition:all .15s}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{background:#333}
+.btn-line{border-color:var(--line2);background:#fff}
+.btn-line:hover{border-color:var(--ink)}
+.btn-text{background:none;border:0;padding:10px 8px;font-weight:600;font-size:14px}
+.btn-sm{padding:7px 11px;font-size:13px;border-radius:9px}
+.btn.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.menu-btn{display:none;border:1px solid var(--line2);background:#fff;border-radius:10px;width:40px;height:40px;align-items:center;justify-content:center}
+
+/* pills / badges */
+.pill{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;padding:3px 8px;border-radius:999px;background:var(--soft);border:1px solid var(--line);white-space:nowrap}
+.pill.dark{background:var(--ink);color:#fff;border-color:var(--ink)}
+.pill.peach{background:var(--peach);border-color:#efc8b3}
+.st-Active{background:var(--greenbg);border-color:#c9dfcf;color:#1f4d35}
+.st-Acquired{background:#e6e0f0;border-color:#d4cae6;color:#45356b}
+.st-Closed{background:var(--redbg);border-color:#ebc9c1;color:var(--red)}
+.ev{font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 5px;border-radius:4px;margin-left:5px;vertical-align:1px}
+.ev-E{background:#f3e8c3;color:#6b5512}
+.ev-R{background:var(--greenbg);color:#1f4d35}
+.und{color:var(--faint);font-size:13px;font-style:italic}
+.sample{display:flex;gap:10px;align-items:center;background:#fff8e6;border:1px solid #f0dfae;color:#5c4a12;border-radius:10px;padding:9px 13px;font-size:13px}
+
+/* hero */
+.hero{padding:44px 0 26px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end}
+.hero h1{font-size:clamp(40px,4.8vw,62px);line-height:1;letter-spacing:-2.4px;margin:12px 0 12px}
+.hero p{font-size:18px;color:var(--muted);margin:0;max-width:560px}
+.usearch{position:relative}
+.usearch .box{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #a9a29a;border-radius:14px;padding:0 16px;height:56px;box-shadow:var(--shadow)}
+.usearch input{border:0;outline:0;background:transparent;width:100%;font-size:16px}
+.usearch .drop{position:absolute;left:0;right:0;top:62px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 20px 50px rgba(0,0,0,.14);z-index:30;max-height:420px;overflow:auto;padding:6px;display:none}
+.usearch .drop.open{display:block}
+.counts{display:flex;gap:22px;margin-top:14px;font-size:13px;color:var(--muted);flex-wrap:wrap}
+.counts b{color:var(--ink);font-size:15px}
+
+/* index */
+.ix-head{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:8px 0 14px}
+.tabs{display:inline-flex;background:#fff;border:1px solid var(--line2);border-radius:12px;padding:4px}
+.tabs a{padding:9px 16px;border-radius:9px;font-size:14px;font-weight:600;color:var(--muted)}
+.tabs a.on{background:var(--ink);color:#fff}
+.tabs a span{opacity:.6;font-weight:500;margin-left:4px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.field{display:flex;align-items:center;gap:8px;border:1px solid var(--line2);background:#fff;border-radius:10px;padding:0 12px;height:40px;min-width:240px}
+.field input{border:0;outline:0;background:transparent;width:100%;font-size:14px}
+select.sel,input.sel,textarea.sel{height:40px;border:1px solid var(--line2);background:#fff;border-radius:10px;padding:0 32px 0 12px;font-size:14px;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23111' stroke-width='1.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;cursor:pointer}
+input.sel,textarea.sel{background-image:none;padding:0 12px;cursor:text;width:100%}
+textarea.sel{height:96px;padding:10px 12px;resize:vertical}
+select.sel.set{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.clear{font-size:13px;font-weight:600;text-decoration:underline;text-underline-offset:3px;background:none;border:0;padding:0 4px}
+.tablecard{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.tscroll{overflow-x:auto}
+table.ix{width:100%;border-collapse:collapse;font-size:14px;min-width:1020px}
+.ix th{text-align:left;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);font-weight:600;padding:12px 14px;border-bottom:1px solid var(--line);background:#fcfbf8;white-space:nowrap;user-select:none;position:sticky;top:0}
+.ix th.r,.ix td.r{text-align:right}
+.ix th.s{cursor:pointer}
+.ix th.s:hover,.ix th.on{color:var(--ink)}
+.ix th .a{opacity:.35;margin-left:3px}
+.ix th.on .a{opacity:1}
+.ix td{padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:middle;white-space:nowrap}
+.ix tbody tr{cursor:pointer;transition:background .12s}
+.ix tbody tr:hover{background:#fbf8f3}
+.ix tbody tr:last-child td{border-bottom:0}
+.rank{color:var(--faint);font-size:13px;width:36px}
+.ent{display:flex;align-items:center;gap:11px}
+.ent b{font-weight:600;display:block}
+.ent small{display:block;color:var(--muted);font-size:12px}
+.num{font-variant-numeric:tabular-nums}
+.stack{display:flex}
+.stack > *{margin-left:-6px;border:2px solid #fff;border-radius:8px}
+.stack > *:first-child{margin-left:0}
+.stack .more{width:28px;height:28px;display:grid;place-items:center;font-size:11px;font-weight:700;background:var(--soft);border-radius:8px}
+.mark{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;font-family:var(--serif);font-size:14px;font-weight:700;flex:none}
+.av{border-radius:50%;flex:none;display:block}
+.ix-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 14px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);flex-wrap:wrap}
+.pager{display:flex;gap:4px}
+.pager button{min-width:34px;height:34px;border-radius:8px;border:1px solid var(--line2);background:#fff;font-size:13px;font-weight:600}
+.pager button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.pager button:disabled{opacity:.35;cursor:default}
+.disclaimer{font-size:12.5px;color:var(--muted);margin:12px 2px 0;display:flex;gap:6px;flex-wrap:wrap}
+.disclaimer a{text-decoration:underline;text-underline-offset:2px}
+/* mobile rows */
+.mrows{display:none}
+.mrow{border-bottom:1px solid var(--line)}
+.mrow:last-child{border-bottom:0}
+.mrow .h{display:flex;align-items:center;gap:10px;padding:13px 14px}
+.mrow .h .ent{flex:1;min-width:0}
+.mrow .h .ent b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mrow .k{text-align:right;font-size:13px}
+.mrow .k b{display:block;font-size:15px}
+.mrow .tg{width:30px;height:30px;border-radius:8px;border:1px solid var(--line2);background:#fff;display:grid;place-items:center;transition:transform .2s}
+.mrow.open .tg{transform:rotate(180deg)}
+.mrow .mx{display:none;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border-top:1px solid var(--line)}
+.mrow.open .mx{display:grid}
+.mrow .mx div{background:#fcfbf8;padding:9px 14px;font-size:13px}
+.mrow .mx small{display:block;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);font-weight:600}
+.mrow .mx .full{grid-column:1/-1;background:#fff}
+
+/* profile */
+.crumbs{font-size:13px;color:var(--muted);padding:22px 0 0}
+.crumbs a:hover{color:var(--ink)}
+.phead{display:flex;gap:22px;align-items:flex-start;padding:22px 0 24px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.phead .id{flex:1;min-width:260px}
+.phead h1{font-size:clamp(36px,4vw,52px);letter-spacing:-1.8px;line-height:1;margin:6px 0 8px}
+.phead .sub{display:flex;gap:8px;flex-wrap:wrap;align-items:center;color:var(--muted);font-size:14px}
+.pactions{display:flex;gap:8px;flex-wrap:wrap}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin:24px 0}
+.tile{background:#fff;padding:16px 18px}
+.tile small{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);font-weight:600;margin-bottom:6px}
+.tile b{font-family:var(--serif);font-size:28px;font-weight:600;letter-spacing:-.6px}
+.tile .asof{display:block;font-size:12px;color:var(--faint);margin-top:4px}
+.pgrid{display:grid;grid-template-columns:1fr 340px;gap:40px;align-items:start}
+.sec{margin:0 0 34px}
+.sec h3{font-family:var(--sans);font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin:0 0 12px;display:flex;justify-content:space-between;align-items:center}
+.sec h3 a,.sec h3 button{font-size:12px;letter-spacing:0;text-transform:none;font-weight:600;text-decoration:underline;text-underline-offset:3px;background:none;border:0;padding:0}
+.list{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.li{display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:1px solid var(--line);width:100%;text-align:left;background:#fff;border-left:0;border-right:0;border-top:0}
+.li:last-child{border-bottom:0}
+a.li:hover,button.li:hover{background:#fbf8f3}
+.li .t{flex:1;min-width:0}
+.li .t b{display:block;font-size:14px;font-weight:600}
+.li .t span{display:block;font-size:12.5px;color:var(--muted)}
+.li .rt{text-align:right;font-size:13px}
+.side{position:sticky;top:90px;display:flex;flex-direction:column;gap:16px}
+.box{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}
+.box h4{margin:0 0 8px;font-size:15px}
+.box p{margin:0 0 12px;font-size:14px;color:var(--muted)}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:8px 14px;font-size:14px}
+.kv dt{color:var(--faint)} .kv dd{margin:0;font-weight:500}
+.prose{font-size:16px;line-height:1.65;color:#2b2926}
+.video{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:16/9;background:#111;display:block}
+.video svg{width:100%;height:100%;display:block;opacity:.85}
+.video .play{position:absolute;inset:0;display:grid;place-items:center}
+.video .play span{width:68px;height:68px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.3);transition:transform .2s}
+.video:hover .play span{transform:scale(1.07)}
+.video .cap{position:absolute;left:14px;bottom:12px;right:14px;color:#fff;font-size:13px;font-weight:600;display:flex;justify-content:space-between;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+
+/* stories */
+.page-hero{padding:46px 0 22px}
+.page-hero h1{font-size:clamp(40px,5vw,64px);line-height:1;letter-spacing:-2.4px;margin:12px 0 12px;max-width:820px}
+.page-hero p{font-size:18px;color:var(--muted);max-width:640px;margin:0}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:24px}
+.chip{border:1px solid var(--line2);background:#fff;border-radius:999px;padding:7px 13px;font-size:13px;font-weight:500}
+.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px 24px}
+.scard{display:flex;flex-direction:column;gap:9px}
+.scard .thumb{aspect-ratio:16/10;border-radius:14px;overflow:hidden;position:relative}
+.scard .thumb svg{width:100%;height:100%;display:block;transition:transform .5s}
+.scard:hover .thumb svg{transform:scale(1.04)}
+.scard .thumb .vb{position:absolute;left:10px;bottom:10px;background:rgba(17,17,17,.85);color:#fff;font-size:11px;font-weight:600;padding:4px 8px;border-radius:6px;display:flex;gap:5px;align-items:center}
+.scard h3{font-size:22px;line-height:1.15;letter-spacing:-.5px;margin:2px 0 0}
+.scard p{margin:0;color:var(--muted);font-size:14.5px}
+.scard:hover h3{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+.tagrow{display:flex;gap:5px;flex-wrap:wrap}
+.reader{padding:30px 0 10px}
+.reader h1{font-size:clamp(36px,4.6vw,56px);line-height:1.04;letter-spacing:-2px;margin:16px 0 14px}
+.reader .dek{font-family:var(--serif);font-size:21px;color:var(--muted);line-height:1.5;margin:0 0 20px}
+.article{font-family:var(--serif);font-size:19.5px;line-height:1.72}
+.article p{margin:0 0 22px}
+.article blockquote{margin:28px 0;padding:4px 0 4px 22px;border-left:3px solid var(--clay);font-size:25px;line-height:1.35;font-style:italic}
+.takeaways{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:20px 24px;margin:28px 0;font-family:var(--sans)}
+.takeaways ul{margin:8px 0 0;padding-left:20px;font-size:15.5px;line-height:1.6}
+.progress{position:fixed;top:0;left:0;height:3px;background:var(--clay);z-index:60;width:0}
+
+/* tool */
+.tool{display:grid;grid-template-columns:1fr 1fr;gap:0;background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow)}
+.tool .in{padding:30px}
+.tool .out{background:var(--ink);color:#fff;padding:30px;position:relative}
+.flabel{display:block;font-size:13px;font-weight:600;margin:14px 0 6px}
+.flabel:first-child{margin-top:0}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.big{font-family:var(--serif);font-size:54px;font-weight:600;letter-spacing:-2px;line-height:1;margin:8px 0}
+.bar{height:10px;border-radius:999px;background:#2a2a2a;position:relative;margin:16px 0 6px}
+.bar i{position:absolute;top:0;bottom:0;border-radius:999px;background:linear-gradient(90deg,#f6d9c9,#d98e6a)}
+.out .note{font-size:12px;color:#a9a39b}
+.out .mini{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.out .mini div{background:#1d1d1d;border:1px solid #2c2c2c;border-radius:12px;padding:12px}
+.out .mini small{display:block;color:#a9a39b;font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+.out .mini b{font-size:18px}
+.steps{display:flex;gap:6px;margin:0 0 18px;font-size:12px;color:var(--faint);flex-wrap:wrap}
+.steps span{padding:4px 9px;border-radius:999px;background:var(--soft)}
+.steps span.on{background:var(--ink);color:#fff}
+
+/* events */
+.erow{display:grid;grid-template-columns:76px 1fr auto;gap:20px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line)}
+.datebox{border:1px solid var(--line2);background:#fff;border-radius:12px;text-align:center;padding:7px 0 8px;line-height:1}
+.datebox small{display:block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--clay)}
+.datebox b{display:block;font-family:var(--serif);font-size:28px;font-weight:600;margin:4px 0 2px}
+.datebox span{font-size:11px;color:var(--faint)}
+.erow h3{font-family:var(--sans);font-size:18px;font-weight:650;margin:5px 0 3px;letter-spacing:-.3px}
+.erow a:hover h3{text-decoration:underline;text-underline-offset:3px}
+.erow .where{font-size:13.5px;color:var(--muted);display:flex;gap:12px;flex-wrap:wrap}
+.month{font-family:var(--serif);font-size:24px;font-weight:600;margin:28px 0 4px}
+.month:first-child{margin-top:0}
+.ecover{aspect-ratio:1/1;border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}
+.ecover svg{width:100%;height:100%;display:block}
+.egrid{display:grid;grid-template-columns:340px 1fr;gap:44px;padding:30px 0}
+
+/* newsletter */
+.nl-hero{background:var(--ink);color:#fff;border-radius:24px;padding:46px;margin:30px 0;display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;position:relative;overflow:hidden}
+.nl-hero:before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(246,217,201,.18),transparent 65%);right:-100px;top:-180px}
+.nl-hero h1{font-size:clamp(38px,4.4vw,56px);letter-spacing:-2px;line-height:1;margin:12px 0}
+.nl-hero p{color:#c9c4bd;font-size:17px;margin:0}
+.nl-form{background:#1c1c1c;border:1px solid #2e2e2e;border-radius:16px;padding:20px;position:relative}
+.nl-form input.sel,.nl-form select.sel{background-color:#262626;border-color:#3a3a3a;color:#fff}
+.nl-form .flabel{color:#ddd}
+.issue{border:1px solid var(--line);border-radius:14px;background:#fff;margin-bottom:10px;overflow:hidden}
+.issue summary{list-style:none;display:flex;gap:16px;align-items:center;padding:16px 18px;cursor:pointer}
+.issue summary::-webkit-details-marker{display:none}
+.issue summary h3{font-family:var(--sans);font-size:17px;margin:2px 0 0;font-weight:650}
+.issue[open] summary{border-bottom:1px solid var(--line)}
+.issue .body{padding:6px 18px 16px}
+.issue .body a{display:flex;gap:10px;padding:10px 0;border-bottom:1px dashed var(--line);font-size:14px}
+.issue .body a:last-child{border-bottom:0}
+.issue .body a:hover b{text-decoration:underline}
+
+/* static pages */
+.doc{padding:20px 0 40px}
+.doc h2{font-size:28px;margin:38px 0 10px}
+.doc p,.doc li{font-size:16.5px;line-height:1.65;color:#2b2926}
+.doc table{width:100%;border-collapse:collapse;font-size:14.5px;margin:12px 0;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.doc th,.doc td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+.doc th{background:#fcfbf8;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--faint)}
+.callout{background:var(--peach2);border-radius:14px;padding:18px 20px;margin:20px 0;font-size:15px}
+
+/* modal, palette, toast */
+.overlay{position:fixed;inset:0;background:rgba(17,17,17,.4);z-index:70;opacity:0;pointer-events:none;transition:opacity .2s}
+.overlay.open{opacity:1;pointer-events:auto}
+.modal{position:fixed;left:50%;top:50%;transform:translate(-50%,-47%);width:min(520px,calc(100% - 28px));max-height:calc(100vh - 40px);overflow:auto;background:var(--paper);border-radius:20px;z-index:90;opacity:0;pointer-events:none;transition:all .2s;box-shadow:0 30px 80px rgba(0,0,0,.25)}
+.modal.open{opacity:1;pointer-events:auto;transform:translate(-50%,-50%)}
+.modal .mh{padding:22px 24px 0;display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.modal .mh h2{font-size:26px}
+.modal .mh p{margin:6px 0 0;color:var(--muted);font-size:14px}
+.modal .mb{padding:16px 24px 24px}
+.x{width:36px;height:36px;border-radius:10px;border:1px solid var(--line2);background:#fff;display:grid;place-items:center;font-size:18px;flex:none}
+.consent{display:flex;gap:9px;align-items:flex-start;font-size:13px;color:var(--muted);margin:10px 0;cursor:pointer}
+.consent input{accent-color:var(--ink);margin-top:2px;width:15px;height:15px;flex:none}
+.ok{display:none;background:var(--greenbg);color:#1f4d35;border-radius:10px;padding:12px 14px;font-size:14px;margin-top:12px}
+.palette{position:fixed;left:50%;top:11vh;transform:translateX(-50%) translateY(-6px);width:min(640px,calc(100% - 24px));background:#fff;border-radius:18px;z-index:95;opacity:0;pointer-events:none;transition:all .18s;box-shadow:0 30px 80px rgba(0,0,0,.28);overflow:hidden}
+.palette.open{opacity:1;pointer-events:auto;transform:translateX(-50%)}
+.palette .pin{display:flex;align-items:center;gap:12px;padding:16px 18px;border-bottom:1px solid var(--line)}
+.palette .pin input{border:0;outline:0;font-size:18px;width:100%}
+.palette .pres{max-height:58vh;overflow:auto;padding:6px}
+.pg{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);font-weight:700;padding:10px 12px 4px}
+.pi{display:flex;align-items:center;gap:12px;padding:9px 12px;border-radius:10px;width:100%;border:0;background:none;text-align:left}
+.pi.sel,.pi:hover{background:var(--soft)}
+.pi .ic{width:32px;height:32px;border-radius:8px;flex:none;overflow:hidden;display:grid;place-items:center;background:var(--soft)}
+.pi b{display:block;font-size:14px;font-weight:600}
+.pi span{font-size:12px;color:var(--muted)}
+mark{background:var(--peach);color:inherit;border-radius:3px;padding:0 1px}
+.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,16px);background:var(--ink);color:#fff;padding:11px 16px;border-radius:11px;font-size:14px;z-index:100;opacity:0;transition:all .2s;pointer-events:none}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.sharecard{border-radius:14px;overflow:hidden;border:1px solid var(--line);margin-bottom:14px}
+.sharecard svg{display:block;width:100%;height:auto}
+
+/* footer */
+footer{border-top:1px solid var(--line);margin-top:70px;padding:44px 0 30px;font-size:13.5px;color:var(--muted)}
+.fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:30px;margin-bottom:30px}
+.fgrid h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin:0 0 10px}
+.fgrid a,.fgrid button{display:block;padding:4px 0;background:none;border:0;text-align:left;font-size:13.5px;color:var(--muted)}
+.fgrid a:hover,.fgrid button:hover{color:var(--ink)}
+.social{display:flex;gap:8px;margin-top:14px}
+.social a{width:36px;height:36px;border-radius:10px;border:1px solid var(--line2);display:grid;place-items:center;background:#fff;padding:0}
+.fbottom{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;padding-top:18px;border-top:1px solid var(--line)}
+
+/* responsive */
+@media (max-width:1000px){
+  .hero{grid-template-columns:1fr;gap:20px}
+  .pgrid{grid-template-columns:1fr}
+  .side{position:static}
+  .sgrid{grid-template-columns:1fr 1fr}
+  .tool{grid-template-columns:1fr}
+  .nl-hero{grid-template-columns:1fr;padding:32px}
+  .egrid{grid-template-columns:1fr}
+  .ecover{max-width:340px}
+  .kbtn .lbl,.kbtn kbd{display:none}
+}
+@media (max-width:820px){
+  .wrap{width:calc(100% - 32px)}
+  .menu-btn{display:flex}
+  .navlinks{display:none;position:absolute;top:70px;left:0;right:0;flex-direction:column;background:var(--paper);padding:10px 16px 16px;border-bottom:1px solid var(--line);font-size:16px}
+  .navlinks.open{display:flex}
+  .navlinks a{padding:12px 14px}
+  .hide-m{display:none!important}
+  .tscroll{display:none}
+  .mrows{display:block}
+  .tiles{grid-template-columns:1fr 1fr}
+  .fgrid{grid-template-columns:1fr 1fr}
+  .field{min-width:100%}
+  .filters select.sel{flex:1 1 calc(33% - 6px);min-width:0}
+}
+@media (max-width:560px){
+  .nav{gap:10px}.brand{font-size:21px;gap:7px}.brand .logo{width:24px;height:24px}.nav-right{gap:6px}.nav-right .btn-dark{padding:8px 12px;font-size:13px}.kbtn{padding:8px 9px}
+  .hero h1{font-size:40px;letter-spacing:-1.6px}
+  .hero p{font-size:16px}
+  .sgrid{grid-template-columns:1fr}
+  .filters select.sel{flex:1 1 calc(50% - 4px)}
+  .tabs{width:100%}.tabs a{flex:1;text-align:center}
+  .tiles .tile b{font-size:22px}
+  .erow{grid-template-columns:60px 1fr;gap:12px}
+  .erow .acts{grid-column:2}
+  .row2{grid-template-columns:1fr}
+  .tool .in,.tool .out{padding:22px}
+  .big{font-size:42px}
+  .article{font-size:18px}
+  .nl-hero{padding:24px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<header class="top">
+  <div class="wrap nav">
+    <a class="brand" href="#index" aria-label="Reachworth home"><span class="logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><path d="M4 18 10 11l4 4 6-9"/><path d="M15 6h5v5"/></svg></span>Reachworth</a>
+    <nav class="navlinks" id="navlinks" aria-label="Main">
+      <a href="#index" data-nav="index">Index</a>
+      <a href="#stories" data-nav="stories">Stories</a>
+      <a href="#tools" data-nav="tools">Tools</a>
+      <a href="#events" data-nav="events">Events</a>
+    </nav>
+    <div class="nav-right">
+      <button class="kbtn" id="openPalette" aria-label="Search"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="lbl">Search</span><kbd>⌘K</kbd></button>
+      <button class="btn btn-text hide-m" data-modal="login">Log in</button>
+      <a class="btn btn-dark" href="#newsletter">Subscribe</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="brand" style="color:var(--ink);font-size:22px"><span class="logo"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><path d="M4 18 10 11l4 4 6-9"/><path d="M15 6h5v5"/></svg></span>Reachworth</div>
+        <p style="max-width:320px;margin:12px 0 0">The business behind influence. Independent coverage of the companies creators build, the people behind them, and how they make money.</p>
+        <div class="social">
+          <a href="https://www.youtube.com/" target="_blank" rel="noreferrer" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.7 15.1V8.9L15.5 12z"/></svg></a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V21h-4z"/></svg></a>
+          <a href="https://x.com/" target="_blank" rel="noreferrer" aria-label="X"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.2 2.3h3.4l-7.4 8.4L23 21.7h-6.8l-5.3-7-6.1 7H1.4l7.9-9L1 2.3h7l4.8 6.4zm-1.2 17.4h1.9L7.1 4.2H5.1z"/></svg></a>
+        </div>
+      </div>
+      <div><h4>Reachworth</h4><a href="#newsletter">Newsletter</a><a href="#about">About</a><a href="#methodology">Methodology</a><a href="#contact">Partnerships</a><a href="#contact">Contact</a><a href="#privacy">Privacy &amp; Terms</a></div>
+      <div><h4>Contribute</h4><button data-modal="intake" data-cat="Submit a business">Submit a business</button><button data-modal="edit">Suggest an edit</button><button data-modal="intake" data-cat="Submit an event">Submit an event</button><button data-modal="intake" data-cat="Story tip">Submit a story</button></div>
+      <div><h4>Explore</h4><a href="#index">Creators Index</a><a href="#companies">Companies Index</a><a href="#stories">Stories</a><a href="#tools">Tools</a><a href="#events">Events</a></div>
+    </div>
+    <div class="fbottom">
+      <span>© 2026 Reachworth, a media business of Gaply. Sponsorships are always labelled.</span>
+      <button class="btn-text" style="padding:0;font-size:13px;color:var(--muted);background:none;border:0" data-modal="gaply">Build with Gaply →</button>
+    </div>
+  </div>
+</footer>
+
+<div class="overlay" id="overlay"></div>
+<div class="modal" id="modal" role="dialog" aria-modal="true"></div>
+<div class="palette" id="palette" role="dialog" aria-modal="true" aria-label="Search">
+  <div class="pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="pq" placeholder="Search creators, companies, people, stories…" autocomplete="off"></div>
+  <div class="pres" id="pres"></div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+/* =====================================================================
+   SAMPLE DATA — placeholder records for design review only.
+   Replace with verified records from the Reachworth CMS / Index database.
+   Money values are in USD millions. null = undisclosed (never zero).
+   ev: "R" reported, "E" estimated.
+   ===================================================================== */
+const SAMPLE_DATA = true;
+const BASE_URL = "https://reachworth.com"; // pending domain approval
+
+const COMPANIES = [
+// id, name, sector, model, country, status, founded, val, valEv, raised, rev, revEv, updated, desc
+["crumbwell","Crumbwell","Food & Beverage","DTC + retail","United Kingdom","Active",2021,85,"E",14,32,"E","2026-11-12","Better-for-you snack bars launched from a recipe channel; stocked in ~3,000 UK stores."],
+["kitchen-lab","Kitchen Lab","Media","Membership","India","Active",2020,null,null,0,6,"R","2026-10-28","Cooking media company with a paid recipe membership and live classes."],
+["learnloop","Learnloop","Education","Cohort courses","India","Active",2021,60,"R",11,null,null,"2026-11-03","Cohort-based coding courses taught by working engineers."],
+["sol-y-sal","Sol & Sal","Beauty","DTC","Mexico","Active",2022,null,null,3.8,null,null,"2026-10-14","Sun care formulated for Latin American skin and climates."],
+["lowpoly-club","Lowpoly Club","Gaming","Community-funded studio","Japan","Active",2024,null,null,1.2,null,null,"2026-09-30","Indie game studio built in public on stream, funded by its community."],
+["stillform","Stillform","Wellness","DTC + retail","United States","Active",2019,310,"R",38,70,"E","2026-11-18","Yoga-led wellness brand: supplements, mats and a guided-practice app."],
+["ledgerly","Ledgerly","Software","SaaS","UAE","Active",2023,30,"E",6,null,null,"2026-10-22","Invoicing, VAT and payouts for creators and freelancers in the Gulf."],
+["tecido","Tecido","Fashion","DTC drops","Brazil","Active",2021,null,null,0,4,"R","2026-09-12","Small-batch basics made in Brazil, sold in weekly drops."],
+["two-cents-daily","Two Cents Daily","Media","Newsletter + research","India","Active",2022,null,null,2.4,1.8,"R","2026-11-09","Daily business explainer newsletter with a premium research tier."],
+["dewlab","Dewlab","Beauty","DTC + retail","South Korea","Active",2020,140,"E",17,45,"E","2026-11-05","Minimal K-beauty skincare shipping to 40 countries."],
+["fjallkit","Fjällkit","Fashion","DTC","Sweden","Acquired",2018,48,"R",9,null,null,"2026-08-20","Outdoor apparel and gear; acquired by a Nordic retail group in 2025."],
+["mellow-mornings","Mellow Mornings","Wellness","Subscription app","Netherlands","Active",2025,null,null,0.8,null,null,"2026-10-02","Sleep and morning-routine app led by a wellness creator."],
+["spicebox","Spicebox Co.","Food & Beverage","DTC","Canada","Active",2023,null,null,3,null,null,"2026-10-19","Regional spice blends and meal kits from a family cooking channel."],
+["clipwise","Clipwise","Software","SaaS","Portugal","Active",2024,25,"E",5.5,null,null,"2026-11-20","AI editing tools that turn long-form video into short clips."],
+["saffron-street","Saffron Street","Food & Beverage","Marketplace","India","Acquired",2017,40,"R",7,null,null,"2026-08-04","Home-chef marketplace acquired by a food delivery platform."],
+["meeple-house","Meeple House","Gaming","Crowdfunded games","Poland","Active",2022,null,null,2.1,3.5,"R","2026-09-25","Tabletop games designed with, and crowdfunded by, a board-game channel."],
+["payday-pod","Payday Pod","Fintech","Media + tools","United States","Active",2025,null,null,1.5,null,null,"2026-10-30","Money podcast building budgeting tools for its listeners."],
+["hilo-swim","Hilo Swim","Fashion","DTC","Australia","Active",2022,null,null,4,null,null,"2026-10-08","Swimwear from recycled nylon, launched by a surf creator."],
+["formwork","Formwork Fitness","Wellness","Subscription app","United Kingdom","Active",2020,75,"E",12,18,"E","2026-11-10","Strength-training app and equipment from a fitness creator duo."],
+["lagos-lens","Lagos Lens","Media","Studio + community","Nigeria","Active",2021,null,null,0,null,null,"2026-09-18","Photo and film collective that trains creators and sells to brands."],
+["brightpath","Brightpath Academy","Education","Paid community","United States","Active",2023,null,null,0,1.2,"R","2026-10-11","Paid community teaching small-business finance to first-time founders."],
+["glowtype","Glowtype","Beauty","DTC","France","Closed",2021,null,null,2,null,null,"2026-11-18","Colour cosmetics brand; wound down in 2026 after four years."],
+["fieldnote","Fieldnote Coffee","Food & Beverage","Subscription","United States","Active",2022,null,null,5,null,null,"2026-10-06","Specialty coffee subscription from a lifestyle creator."],
+["sidequest","Sidequest Supply","Consumer goods","DTC","United States","Active",2023,null,null,1,null,null,"2026-09-08","Desk and gaming accessories designed with a streaming audience."],
+["northbound","Northbound Audio","Media","Podcast network","Canada","Active",2019,22,"E",3,6,"E","2026-10-25","Independent podcast network built around creator-hosted shows."],
+["kora-kids","Kora Kids","Education","App","Nigeria","Active",2024,null,null,0.6,null,null,"2026-10-01","Storytelling and literacy app for West African children."],
+["petal-proof","Petal & Proof","Food & Beverage","Bakery + DTC","United Kingdom","Active",2023,null,null,0,2.2,"R","2026-10-15","Bakery and baking-kit brand; second business from a food creator."],
+["pocket-mba","Pocket MBA","Education","Courses","India","Active",2019,null,null,0,3,"R","2026-09-21","Short business courses in Hindi and English."],
+["tidewater","Tidewater Games","Gaming","Studio","United States","Acquired",2020,15,"R",4,null,null,"2026-08-12","Mobile game studio acquired by a larger publisher in 2024."],
+["rootwell","Rootwell","Wellness","DTC","United States","Active",2024,null,null,6,null,null,"2026-11-02","Plant-based supplement line spun out of a wellness brand."],
+["ink-atlas","Ink & Atlas","Media","Travel publishing","Spain","Active",2022,null,null,0,1.1,"R","2026-09-29","Independent travel guides and a paid route-planning membership."],
+["moneywise-arabia","Moneywise Arabia","Media","Newsletter","UAE","Active",2021,null,null,0,null,null,"2026-10-17","Arabic-language personal finance newsletter."],
+["tinta-studio","Tinta Studio","Fashion","Licensing","Mexico","Active",2023,null,null,0,null,null,"2026-10-14","Licensing studio for a creator's prints and illustrations."],
+["brickline","Brickline Capital","Fintech","Creator-led fund","United States","Active",2022,null,null,25,null,null,"2026-11-06","Early-stage fund backing creator-led companies."],
+["hatchery","Hatchery Labs","Software","Venture studio","Germany","Active",2022,18,"E",4.5,null,null,"2026-10-09","Studio that co-builds software products with mid-size creators."],
+["glasshouse","Glasshouse Skincare","Beauty","DTC","United Kingdom","Active",2024,null,null,2.5,null,null,"2026-11-14","Minimal skincare for sensitive skin."]
+].map(r=>({id:r[0],name:r[1],sector:r[2],model:r[3],country:r[4],status:r[5],founded:r[6],val:r[7],valEv:r[8],raised:r[9],rev:r[10],revEv:r[11],updated:r[12],desc:r[13]}));
+
+const CREATORS = [
+// id, name, niche, country, audience (M), platform, [[company, role, from, to]]
+["maya-okafor","Maya Okafor","Food","United Kingdom",1.4,"YouTube",[["crumbwell","Founder",2021],["petal-proof","Co-founder",2023]]],
+["arjun-mehta","Arjun Mehta","Food","India",5.1,"YouTube",[["kitchen-lab","Founder",2020],["saffron-street","Investor",2019,2024]]],
+["priya-raman","Priya Raman","Education","India",0.82,"YouTube",[["learnloop","Co-founder",2021]]],
+["sofia-castillo","Sofia Castillo","Beauty","Mexico",2.2,"Instagram",[["sol-y-sal","Founder",2022],["tinta-studio","Partner",2023]]],
+["kenji-watanabe","Kenji Watanabe","Gaming","Japan",0.96,"Twitch",[["lowpoly-club","Founder",2024]]],
+["hannah-lee","Hannah Lee","Wellness","United States",3.6,"YouTube",[["stillform","Founder",2019],["rootwell","Co-founder",2024],["fieldnote","Investor",2023]]],
+["omar-haddad","Omar Haddad","Finance","UAE",1.1,"YouTube",[["ledgerly","Founder",2023],["moneywise-arabia","Founder",2021]]],
+["rafael-souza","Rafael Souza","Fashion","Brazil",0.64,"Instagram",[["tecido","Founder",2021]]],
+["nikhil-rao","Nikhil Rao","Business","India",0.78,"Newsletter",[["two-cents-daily","Founder",2022],["pocket-mba","Founder",2019]]],
+["grace-kim","Grace Kim","Beauty","South Korea",2.9,"YouTube",[["dewlab","Founder",2020]]],
+["jonas-berg","Jonas Berg","Outdoors","Sweden",0.51,"YouTube",[["fjallkit","Founder",2018,2025]]],
+["ravi-sandhu","Ravi Sandhu","Food","Canada",1.3,"YouTube",[["spicebox","Founder",2023],["northbound","Co-founder",2019]]],
+["marta-silva","Marta Silva","Tech","Portugal",0.42,"YouTube",[["clipwise","Founder",2024]]],
+["piotr-nowak","Piotr Nowak","Gaming","Poland",0.6,"YouTube",[["meeple-house","Founder",2022]]],
+["tasha-green","Tasha Green","Finance","United States",0.7,"Podcast",[["payday-pod","Founder",2025],["northbound","Investor",2022]]],
+["mia-torres","Mia Torres","Travel","Australia",1.0,"Instagram",[["hilo-swim","Founder",2022]]],
+["callum-price","Callum Price","Fitness","United Kingdom",2.4,"YouTube",[["formwork","Co-founder",2020]]],
+["tunde-bello","Tunde Bello","Photography","Nigeria",0.9,"Instagram",[["lagos-lens","Founder",2021],["kora-kids","Co-founder",2024]]],
+["leah-turner","Leah Turner","Business","United States",0.3,"LinkedIn",[["brightpath","Founder",2023]]],
+["jade-moreau","Jade Moreau","Beauty","France",1.7,"TikTok",[["glowtype","Founder",2021,2026]]],
+["eli-brooks","Eli Brooks","Lifestyle","United States",2.0,"YouTube",[["fieldnote","Founder",2022]]],
+["sam-okoro","Sam Okoro","Gaming","United States",3.1,"Twitch",[["sidequest","Founder",2023],["tidewater","Co-founder",2020,2024]]],
+["lucia-ortega","Lucía Ortega","Travel","Spain",0.88,"Instagram",[["ink-atlas","Founder",2022]]],
+["marcus-hale","Marcus Hale","Finance","United States",1.9,"YouTube",[["brickline","Founder",2022],["clipwise","Investor",2024],["ledgerly","Investor",2023]]],
+["felix-wagner","Felix Wagner","Tech","Germany",0.55,"YouTube",[["hatchery","Co-founder",2022]]],
+["ava-sinclair","Ava Sinclair","Beauty","United Kingdom",1.2,"TikTok",[["glasshouse","Founder",2024]]],
+["noor-de-vries","Noor de Vries","Wellness","Netherlands",0.45,"Instagram",[["mellow-mornings","Founder",2025]]],
+["kai-nakamura","Kai Nakamura","Fitness","Singapore",0.7,"Instagram",[["formwork","Investor",2023],["rootwell","Investor",2024]]]
+].map(r=>({id:r[0],name:r[1],niche:r[2],country:r[3],audience:r[4],platform:r[5],links:r[6].map(l=>({c:l[0],role:l[1],from:l[2],to:l[3]}))}));
+
+// Public professional roles only (no private contact details).
+const PEOPLE = [
+["Tom Ellis","COO","crumbwell",2022],["Sarah Chen","COO","stillform",2020],["Vikram Iyer","CTO & co-founder","learnloop",2021],
+["Lena Hoffmann","COO","hatchery",2022],["Theo Martin","Head of Growth","clipwise",2024],["Chloe Bennett","Partnerships lead","spicebox",2023],
+["Zara Ahmed","Partnerships","hilo-swim",2023],["Daniel Reyes","Investor · Northlight Capital","crumbwell",2023],["Daniel Reyes","Investor · Northlight Capital","stillform",2021],
+["Isabel Cruz","Investor · Common Thread VC","dewlab",2022],["Isabel Cruz","Investor · Common Thread VC","formwork",2023],["Amara Nwosu","Investor · Kora Fund","lagos-lens",2024],
+["Elliot Park","CEO","ledgerly",2023],["Hyejin Park","COO","dewlab",2021],["Rosa Méndez","Head of Product","sol-y-sal",2023]
+].map(r=>({name:r[0],role:r[1],c:r[2],from:r[3]}));
+
+const STORIES = [
+{id:"maya-okafor-interview",format:"Business Interview",title:"Building a $14M-backed snack brand without paid ads",dek:"Maya Okafor on retail, margins, and why her recipe channel is still Crumbwell's R&D lab.",date:"2026-11-12",mins:58,video:true,companies:["crumbwell","petal-proof"],creators:["maya-okafor"],
+ body:["Maya Okafor didn't plan to start a snack company. After viewers kept asking where to buy the bars she made on camera, she ran a small pre-order and sold out in a weekend.","Crumbwell has since raised a $14M Series A and is stocked in roughly 3,000 UK stores — without meaningful spend on paid acquisition.","Her advice: understand unit economics before your first retail meeting, and treat your channel as a product lab, not just a megaphone."],quote:"We test flavours on camera before we ever talk to a manufacturer.",takeaways:["Pre-orders validated demand before manufacturing spend.","Retail followed a year of profitable DTC.","Content doubles as product research."]},
+{id:"how-stillform-scaled",format:"Business Breakdown",title:"How Stillform turned a yoga channel into a $310M company",dek:"A 14-minute breakdown of the product ladder, retail timing and spin-outs behind Stillform.",date:"2026-11-18",mins:14,video:true,companies:["stillform","rootwell"],creators:["hannah-lee"],
+ body:["Stillform's growth followed a clear ladder: free daily practice, a low-priced app, then physical products tied to the habit.","Its reported Series B valuation of $310M came after two years of retail distribution, which the company used to reach customers outside Hannah Lee's audience.","The 2024 spin-out of Rootwell shows a pattern we see often: the second business is built on the first one's supply chain."],takeaways:["Habit first, product second.","Retail extended reach beyond the founder's audience.","Second businesses reuse the first one's operations."]},
+{id:"dewlab-retail-playbook",format:"Case Study",title:"Inside Dewlab's 40-country retail playbook",dek:"How a Seoul skincare creator built international distribution without a sales team.",date:"2026-11-05",mins:9,companies:["dewlab"],creators:["grace-kim"],
+ body:["Dewlab entered new markets only where Grace Kim's audience was already over-indexing, using platform analytics to pick countries.","Distributors were signed with audience data as part of the pitch — a pattern retail buyers increasingly expect.","Estimated revenue of $45M (Reachworth estimate) puts it among the larger creator-led beauty brands in our Index."],takeaways:["Let audience data choose markets.","Bring audience data to distributor pitches.","Estimates are labelled; see Methodology."]},
+{id:"glowtype-winds-down",format:"News",title:"Glowtype winds down after four years",dek:"The creator-led cosmetics brand closed in November; its founder says inventory costs outpaced demand.",date:"2026-11-18",mins:3,companies:["glowtype"],creators:["jade-moreau"],
+ body:["Glowtype, the colour cosmetics brand founded by Jade Moreau in 2021, has closed. The company had raised $2M.","Moreau said the brand launched too many SKUs too quickly and struggled with inventory costs.","Reachworth covers failures as well as successes: they are some of the most useful lessons in the category."],takeaways:["Too many SKUs too soon is a common failure mode.","Inventory risk is the main difference between content and product businesses."]},
+{id:"clipwise-seed",format:"News",title:"Clipwise raises $5.5M seed for AI clipping tools",dek:"Marta Silva's Lisbon startup adds creator-investor Marcus Hale to its cap table.",date:"2026-11-20",mins:3,companies:["clipwise","brickline"],creators:["marta-silva","marcus-hale"],
+ body:["Clipwise has raised a $5.5M seed round to expand its AI tools that cut long-form video into short clips.","The round includes Brickline Capital, the creator-led fund started by Marcus Hale.","Reachworth estimates the post-money valuation at around $25M; the company has not disclosed it."],takeaways:["Creator-led funds are backing creator tools.","Valuation is a Reachworth estimate, clearly labelled."]},
+{id:"marcus-hale-investor-checklist",format:"Business Interview",title:"A creator-investor's checklist for creator-led startups",dek:"Marcus Hale on audience portability, operators and the red flags that end a conversation early.",date:"2026-10-22",mins:47,video:true,companies:["brickline","ledgerly","clipwise"],creators:["marcus-hale"],
+ body:["Marcus Hale's first question isn't follower count. He asks how much of an audience would follow a creator to a new platform tomorrow.","Red flags: no operator on the team, a product that could be any brand's, and revenue dependent on one algorithm.","Brickline now holds stakes in more than a dozen creator-led companies, including Ledgerly and Clipwise."],quote:"Followers are a vanity metric. Portability is the real one.",takeaways:["Audience portability beats audience size.","An operator on the team is a strong signal.","Single-platform dependency is a red flag."]},
+{id:"learnloop-case-study",format:"Case Study",title:"Learnloop: from free coding tutorials to a $60M school",dek:"How Priya Raman sold outcomes instead of content.",date:"2026-11-03",mins:8,companies:["learnloop"],creators:["priya-raman"],
+ body:["Priya Raman's free course has been watched millions of times. Paid cohorts serve a fraction of that audience and generate almost all revenue.","Learners wanted jobs, not videos, so Learnloop built hiring partnerships before it built a platform.","Its reported $60M valuation followed an $11M Series A."],takeaways:["Free content is the funnel.","Sell outcomes, not content."]},
+{id:"india-creator-commerce",format:"Business Breakdown",title:"India's creator commerce boom, explained",dek:"Regional-language creators, UPI checkout and quick commerce are reshaping how creators sell.",date:"2026-10-29",mins:16,video:true,companies:["kitchen-lab","two-cents-daily","saffron-street","pocket-mba","learnloop"],creators:["arjun-mehta","nikhil-rao","priya-raman"],
+ body:["India now has one of the fastest-growing creator commerce markets, driven by regional-language creators and frictionless payments.","Quick-commerce platforms are courting creator brands with shelf space that would take years to win in traditional retail.","Operations — supply chain and returns — remain the main constraint."],takeaways:["Regional-language creators drive growth.","Quick commerce is a new retail channel.","Operations, not demand, is the bottleneck."]},
+{id:"licensing-not-merch",format:"Case Study",title:"Licensing, not merch: Sofia Castillo's second business",dek:"Why a beauty creator licensed her illustrations instead of launching another product line.",date:"2026-10-14",mins:6,companies:["tinta-studio","sol-y-sal"],creators:["sofia-castillo"],
+ body:["Merch is a margin business with inventory risk. Licensing is a royalty business with almost none.","Tinta Studio licenses Sofia Castillo's prints to apparel and homeware partners, testing categories before Sol & Sal commits to them.","It's a lighter way to build a second revenue line while the main brand scales."],takeaways:["Licensing removes inventory risk.","Use it to test categories before building."]}
+];
+
+const ISSUES = [
+{n:4,date:"2026-11-23",title:"Stillform's ladder, Clipwise's seed, and a closure worth studying",items:["how-stillform-scaled","clipwise-seed","glowtype-winds-down"]},
+{n:3,date:"2026-11-16",title:"The retail playbook and the snack brand with no ad budget",items:["maya-okafor-interview","dewlab-retail-playbook"]},
+{n:2,date:"2026-11-09",title:"Outcomes beat content: Learnloop's model",items:["learnloop-case-study","india-creator-commerce"]},
+{n:1,date:"2026-11-02",title:"Welcome to Reachworth Weekly",items:["marcus-hale-investor-checklist","licensing-not-merch"]}
+];
+
+const EVENTS = [
+{id:"creofold-live-london",title:"Reachworth Live: London",type:"Meetup",city:"London",country:"UK",region:"Europe",start:"2026-10-30",venue:"Shoreditch",price:"Free",desc:"Reader meetup with three short founder talks.",speakers:["maya-okafor","callum-price"],companies:["crumbwell","formwork"]},
+{id:"brand-deals-101",title:"Brand Deals 101",type:"Workshop",city:"Online",country:"",region:"Online",start:"2026-11-25",venue:"Live stream",price:"$49",desc:"Pricing, negotiation and contracts for brand partnerships.",speakers:["tasha-green"],companies:["payday-pod"]},
+{id:"northside-creator-fest",title:"Northside Creator Fest",type:"Conference",city:"Toronto",country:"Canada",region:"North America",start:"2026-12-03",end:"2026-12-05",venue:"Harbourfront",price:"From C$199",desc:"Three days of talks, workshops and a creator-brand marketplace.",speakers:["ravi-sandhu","eli-brooks"],companies:["spicebox","northbound","fieldnote"]},
+{id:"funding-office-hours",title:"Funding Office Hours",type:"Workshop",city:"Online",country:"",region:"Online",start:"2026-12-08",venue:"Live stream",price:"Free",desc:"Investors answer founder questions live.",speakers:["marcus-hale"],companies:["brickline"]},
+{id:"berlin-studio-night",title:"Berlin Studio Night",type:"Meetup",city:"Berlin",country:"Germany",region:"Europe",start:"2026-12-10",venue:"Kreuzberg",price:"Free",desc:"Studios, operators and creators meet for demos.",speakers:["felix-wagner"],companies:["hatchery"]},
+{id:"reachworth-year-in-review",title:"Reachworth Year in Review",type:"Workshop",city:"Online",country:"",region:"Online",start:"2026-12-17",venue:"Live stream",price:"Free",desc:"The biggest creator business moves of 2026.",speakers:[],companies:["stillform","clipwise","glowtype"]},
+{id:"harbour-creator-forum",title:"Harbour Creator Forum",type:"Conference",city:"Singapore",country:"Singapore",region:"APAC",start:"2027-01-14",end:"2027-01-15",venue:"Marina District",price:"From S$350",desc:"Southeast Asia's gathering for creator commerce and capital.",speakers:["grace-kim","kai-nakamura","mia-torres"],companies:["dewlab","hilo-swim"]},
+{id:"product-launch-lab",title:"Product Launch Lab",type:"Workshop",city:"New York",country:"USA",region:"North America",start:"2027-01-22",venue:"SoHo",price:"$180",desc:"Plan your first product launch, from MOQ to launch email.",speakers:["hannah-lee"],companies:["stillform"]},
+{id:"lagos-creator-week",title:"Lagos Creator Week",type:"Festival",city:"Lagos",country:"Nigeria",region:"Africa & Middle East",start:"2027-02-05",end:"2027-02-07",venue:"Victoria Island",price:"From ₦25,000",desc:"Creators, brands and investors across Africa.",speakers:["tunde-bello"],companies:["lagos-lens","kora-kids"]},
+{id:"reachworth-live-bengaluru",title:"Reachworth Live: Bengaluru",type:"Meetup",city:"Bengaluru",country:"India",region:"India",start:"2027-03-06",venue:"Indiranagar",price:"Free",desc:"Founder talks and an investor panel.",speakers:["priya-raman","nikhil-rao","arjun-mehta"],companies:["learnloop","two-cents-daily","kitchen-lab"]},
+{id:"gulf-creator-capital",title:"Gulf Creator Capital Forum",type:"Summit",city:"Dubai",country:"UAE",region:"Africa & Middle East",start:"2027-04-08",venue:"DIFC",price:"Invite only",desc:"Investors and creator-founders across the Gulf.",speakers:["omar-haddad"],companies:["ledgerly","moneywise-arabia"]},
+{id:"southern-creator-summit",title:"Southern Creator Summit",type:"Conference",city:"Sydney",country:"Australia",region:"APAC",start:"2027-05-13",end:"2027-05-14",venue:"Barangaroo",price:"From A$320",desc:"Australia and New Zealand's creator business conference.",speakers:["mia-torres"],companies:["hilo-swim"]}
+];
+
+/* Flagship tool rate table — ILLUSTRATIVE PLACEHOLDERS.
+   Replace with Reachworth's sourced benchmark ranges before launch. */
+const RATES = { // sponsored-post value per 1,000 views, USD [low, high]
+  YouTube:[15,35], Instagram:[8,20], TikTok:[4,12], Podcast:[18,40], Newsletter:[25,60], LinkedIn:[20,45], Twitch:[6,15]
+};
+const NICHE_MULT = {Finance:1.6,Business:1.5,Tech:1.4,Education:1.2,Beauty:1.1,Wellness:1.1,Fitness:1.0,Food:0.95,Fashion:1.0,Travel:0.9,Gaming:0.85,Lifestyle:0.9,Photography:0.9,Outdoors:0.95};
+
+/* =====================================================================
+   HELPERS
+   ===================================================================== */
+const $ = (s,el=document)=>el.querySelector(s);
+const $$ = (s,el=document)=>[...el.querySelectorAll(s)];
+const esc = s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const TODAY = (()=>{const d=new Date();d.setHours(0,0,0,0);return d})();
+const D = s=>{const [y,m,d]=s.split("-").map(Number);return new Date(y,m-1,d)};
+const fmt = (d,o={month:"short",day:"numeric",year:"numeric"})=>d.toLocaleDateString("en-US",o);
+const addDays=(d,n)=>{const x=new Date(d);x.setDate(x.getDate()+n);return x};
+const uniq=a=>[...new Set(a)];
+const CO = id=>COMPANIES.find(c=>c.id===id);
+const CR = id=>CREATORS.find(c=>c.id===id);
+const money = n=> n==null?null : n===0?"$0" : n>=1000?"$"+(n/1000).toFixed(1).replace(/\.0$/,"")+"B" : n>=1?"$"+(Math.round(n*10)/10)+"M" : "$"+Math.round(n*1000)+"K";
+const valCell=(n,ev)=> n==null?`<span class="und" title="Not publicly disclosed — not zero">Undisclosed</span>`:`${ev==="E"?"~":""}${money(n)}${ev?`<span class="ev ev-${ev}" title="${ev==="E"?"Reachworth estimate":"Publicly reported"}">${ev==="E"?"est":"rep"}</span>`:""}`;
+const ago = s=>{const d=Math.round((TODAY-D(s))/864e5);return d<=0?"Today":d===1?"Yesterday":d<30?d+"d ago":fmt(D(s),{month:"short",day:"numeric"})};
+const period = l=>`${l.from}–${l.to??"present"}`;
+function track(name,props={}){ /* Analytics hook: send to your first-party analytics with UTM/source attribution. */ try{(window.dataLayer=window.dataLayer||[]).push({event:name,...props,utm:UTM})}catch(e){} }
+const UTM = (()=>{try{const p=new URLSearchParams(location.search);return Object.fromEntries([...p].filter(([k])=>k.startsWith("utm_")||k==="ref"))}catch(e){return{}}})();
+const store={get(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+let follows=new Set(store.get("rw-follows",[]));
+function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("show");clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove("show"),2300)}
+function hl(t,q){if(!q)return esc(t);const i=t.toLowerCase().indexOf(q);if(i<0)return esc(t);return esc(t.slice(0,i))+"<mark>"+esc(t.slice(i,i+q.length))+"</mark>"+esc(t.slice(i+q.length))}
+function hash(s){let h=2166136261;for(const c of s){h^=c.charCodeAt(0);h=Math.imul(h,16777619)}return h>>>0}
+function rng(seed){let a=hash(seed);return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const PAL=["#f6d9c9","#e8ddd0","#dfe8f1","#e3efe6","#f3e8c3","#efd3d0","#e6e0f0","#f4f0ea"];
+const DEEP=["#111111","#c97b56","#3d5a47","#2f4a66","#8a5a3c"];
+function art(seed,w=400,h=250){
+  const r=rng(seed),pick=a=>a[Math.floor(r()*a.length)];const bg=pick(PAL),fg=pick(DEEP),acc=pick(PAL.filter(c=>c!==bg));const m=Math.floor(r()*4);let s="";
+  if(m===0){const cx=120+r()*160;s+=`<circle cx="${cx}" cy="115" r="${62+r()*25}" fill="${acc}" stroke="${fg}" stroke-width="2.5"/>`;for(let i=0;i<6;i++)s+=`<path d="M0 ${165+i*15} Q100 ${155+i*15+r()*20} 200 ${165+i*15} T400 ${165+i*15}" fill="none" stroke="${fg}" stroke-width="2" opacity="${1-i*.13}"/>`}
+  else if(m===1){for(let i=0;i<4;i++){const x=70+i*42,y=36+i*25;s+=`<rect x="${x}" y="${y}" width="190" height="118" rx="14" fill="${i%2?acc:"#fff"}" stroke="${fg}" stroke-width="2.5" transform="rotate(${-8+i*4} ${x+95} ${y+59})"/>`}}
+  else if(m===2){const cx=r()>.5?60:340;for(let i=0;i<8;i++)s+=`<circle cx="${cx}" cy="250" r="${40+i*28}" fill="${i===2?acc:"none"}" stroke="${fg}" stroke-width="2.2"/>`;s+=`<path d="M${400-cx-30} 60l14 34 34 14-34 14-14 34-14-34-34-14 34-14z" fill="${fg}"/>`}
+  else{for(let x=30;x<400;x+=28)for(let y=26;y<250;y+=28)s+=`<circle cx="${x}" cy="${y}" r="2" fill="${fg}" opacity=".35"/>`;s+=`<path d="M${130+r()*50} 55c70-30 160 0 170 70s-60 110-130 100-110-40-110-90 20-60 70-80z" fill="${acc}" stroke="${fg}" stroke-width="2.5"/>`}
+  return `<svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="400" height="250" fill="${bg}"/>${s}</svg>`;
+}
+function avatar(name,size=32){const r=rng(name),bg=PAL[Math.floor(r()*6)],ini=name.split(" ").map(w=>w[0]).join("").slice(0,2);return `<svg class="av" width="${size}" height="${size}" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" fill="${bg}"/><circle cx="${70+r()*20}" cy="${12+r()*15}" r="22" fill="#fff" opacity=".5"/><text x="50" y="63" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-weight="600" font-size="36" fill="#111">${esc(ini)}</text></svg>`}
+function mark(c,size=28){const r=rng(c.name),bg=PAL[Math.floor(r()*6)];return `<span class="mark" style="background:${bg};width:${size}px;height:${size}px;font-size:${Math.round(size*.5)}px;border-radius:${Math.round(size*.28)}px" title="${esc(c.name)}">${esc(c.name[0])}</span>`}
+const ICON={search:`<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>`,
+ bell:`<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/></svg>`,
+ share:`<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8h16v-8M12 3v13M7 8l5-5 5 5"/></svg>`,
+ edit:`<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>`,
+ play:`<svg width="22" height="22" viewBox="0 0 24 24" fill="#111"><path d="M8 5v14l11-7z"/></svg>`,
+ vid:`<svg width="11" height="11" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>`,
+ chev:`<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>`};
+
+/* Derived creator metrics — company-level figures, never personal net worth. */
+function creatorMetrics(cr){
+  const cos=cr.links.map(l=>({...l,co:CO(l.c)}));
+  const founded=cos.filter(l=>/founder|partner/i.test(l.role));
+  const sum=(arr,k,evk)=>{const known=arr.filter(l=>l.co[k]!=null);if(!known.length)return{v:null,ev:null};return{v:known.reduce((a,l)=>a+l.co[k],0),ev:known.some(l=>l.co[evk]==="E")?"E":(evk?known.every(l=>l.co[evk]==="R")?"R":null:null)}};
+  const sectors={};founded.forEach(l=>sectors[l.co.sector]=(sectors[l.co.sector]||0)+1);
+  return {cos,count:cos.length,sector:Object.entries(sectors).sort((a,b)=>b[1]-a[1])[0]?.[0]||cos[0].co.sector,
+    value:sum(founded,"val","valEv"),raised:sum(founded,"raised",null),rev:sum(founded,"rev","revEv"),
+    updated:cos.map(l=>l.co.updated).sort().pop()};
+}
+CREATORS.forEach(c=>c.m=creatorMetrics(c));
+COMPANIES.forEach(c=>c.creators=CREATORS.filter(cr=>cr.links.some(l=>l.c===c.id)).map(cr=>({cr,link:cr.links.find(l=>l.c===c.id)})));
+
+/* =====================================================================
+   INDEX (homepage)
+   ===================================================================== */
+const IX={view:"creators",q:"",page:1,per:25,
+  creators:{niche:"",sector:"",country:"",sort:"count",dir:-1},
+  companies:{sector:"",country:"",status:"",sort:"raised",dir:-1}};
+const COLS={
+  creators:[["rank","#"],["name","Creator",1],["portfolio","Portfolio"],["count","Businesses",1,"r"],["sector","Sector",1],["value","Disclosed company value",1,"r"],["raised","Capital raised",1,"r"],["rev","Revenue",1,"r"],["updated","Updated",1,"r"]],
+  companies:[["rank","#"],["name","Company",1],["creators","Associated creators"],["model","Business model",1],["sector","Sector",1],["val","Valuation",1,"r"],["raised","Raised",1,"r"],["rev","Revenue",1,"r"],["status","Status",1],["updated","Updated",1,"r"]]
+};
+const SORTLBL={count:"number of tracked businesses",value:"disclosed company value",raised:"capital raised",rev:"revenue",updated:"last updated",name:"name",sector:"sector",val:"valuation",model:"business model",status:"status"};
+function sortVal(row,k){
+  if(IX.view==="creators"){const m=row.m;return {count:m.count,value:m.value.v,raised:m.raised.v,rev:m.rev.v,updated:m.updated,name:row.name,sector:m.sector}[k]}
+  return k==="updated"?row.updated:row[k];
+}
+function ixRows(){
+  const v=IX.view,f=IX[v],q=IX.q.trim().toLowerCase();
+  let rows = v==="creators" ? CREATORS.filter(c=>(!f.niche||c.niche===f.niche)&&(!f.sector||c.m.cos.some(l=>l.co.sector===f.sector))&&(!f.country||c.country===f.country)&&(!q||[c.name,c.niche,c.country,...c.m.cos.map(l=>l.co.name)].join(" ").toLowerCase().includes(q)))
+    : COMPANIES.filter(c=>(!f.sector||c.sector===f.sector)&&(!f.country||c.country===f.country)&&(!f.status||c.status===f.status)&&(!q||[c.name,c.sector,c.model,c.country,...c.creators.map(x=>x.cr.name)].join(" ").toLowerCase().includes(q)));
+  rows.sort((a,b)=>{const x=sortVal(a,f.sort),y=sortVal(b,f.sort);
+    if(x==null&&y==null)return a.name.localeCompare(b.name); if(x==null)return 1; if(y==null)return -1; // undisclosed always last
+    const c=typeof x==="string"?x.localeCompare(y):x-y; return c*f.dir || a.name.localeCompare(b.name)});
+  return rows;
+}
+function pageIndex(view){
+  IX.view=view;
+  return `<div class="wrap fade">
+    <section class="hero">
+      <div>
+        <div class="eyebrow" style="color:var(--clay)">The Reachworth Index</div>
+        <h1>The business behind <span class="underline">influence.</span></h1>
+        <p>Explore the businesses creators build, own and invest in.</p>
+      </div>
+      <div>
+        <div class="usearch" id="usearch">
+          <label class="box">${ICON.search}<input id="uq" placeholder="Search creators, companies, people or stories" autocomplete="off" aria-label="Search the Index"></label>
+          <div class="drop" id="udrop"></div>
+        </div>
+        <div class="counts"><span><b>${CREATORS.length}</b> creators tracked</span><span><b>${COMPANIES.length}</b> companies</span><span><b>${PEOPLE.length}</b> linked people</span><span><b>${STORIES.length}</b> stories</span></div>
+      </div>
+    </section>
+    ${SAMPLE_DATA?`<div class="sample" style="margin-bottom:16px">⚠︎ <span><b>Sample data.</b> Names and figures are placeholders for design review; replace them with verified records before launch.</span></div>`:""}
+    <div class="ix-head">
+      <div class="tabs" role="tablist"><a href="#index" class="${view==="creators"?"on":""}" role="tab">Creators<span>${CREATORS.length}</span></a><a href="#companies" class="${view==="companies"?"on":""}" role="tab">Companies<span>${COMPANIES.length}</span></a></div>
+      <div class="filters" id="ixf"></div>
+    </div>
+    <div id="ixt"></div>
+    <p class="disclaimer">Figures are company-level and dated; they are not personal net worth or the value of a creator's stake. “Undisclosed” is not zero. <span class="ev ev-R" style="margin:0">rep</span> publicly reported · <span class="ev ev-E" style="margin:0">est</span> Reachworth estimate. <a href="#methodology">Methodology</a> · <button class="clear" style="padding:0;font-size:12.5px;font-weight:400" data-modal="edit">Suggest an edit</button> · <button class="clear" style="padding:0;font-size:12.5px;font-weight:400" data-modal="intake" data-cat="Submit a business">Submit a business</button></p>
+  </div>`;
+}
+function renderFilters(){
+  const v=IX.view,f=IX[v];
+  const opt=(k,label,list)=>`<select class="sel ${f[k]?"set":""}" data-f="${k}" aria-label="${label}"><option value="">${label}</option>${list.map(o=>`<option ${f[k]===o?"selected":""}>${esc(o)}</option>`).join("")}</select>`;
+  const all=v==="creators"?CREATORS:COMPANIES;
+  $("#ixf").innerHTML=`<label class="field">${ICON.search}<input id="ixq" placeholder="Filter ${v}…" value="${esc(IX.q)}"></label>`+
+    (v==="creators"?opt("niche","All niches",uniq(CREATORS.map(c=>c.niche)).sort())+opt("sector","All sectors",uniq(COMPANIES.map(c=>c.sector)).sort())+opt("country","All countries",uniq(CREATORS.map(c=>c.country)).sort())
+    :opt("sector","All sectors",uniq(COMPANIES.map(c=>c.sector)).sort())+opt("country","All countries",uniq(COMPANIES.map(c=>c.country)).sort())+opt("status","Any status",["Active","Acquired","Closed"]));
+  $("#ixq").addEventListener("input",e=>{IX.q=e.target.value;IX.page=1;renderTable()});
+  $$("#ixf select").forEach(s=>s.addEventListener("change",e=>{f[s.dataset.f]=s.value;s.classList.toggle("set",!!s.value);IX.page=1;renderTable();track("index_filter",{view:v,[s.dataset.f]:s.value})}));
+}
+function renderTable(){
+  const v=IX.view,f=IX[v],rows=ixRows(),pages=Math.max(1,Math.ceil(rows.length/IX.per));
+  IX.page=Math.min(IX.page,pages);const start=(IX.page-1)*IX.per,slice=rows.slice(start,start+IX.per),q=IX.q.trim().toLowerCase();
+  const th=COLS[v].map(([k,l,s,r])=>`<th class="${s?"s":""} ${r||""} ${f.sort===k?"on":""}" ${s?`data-sort="${k}" aria-sort="${f.sort===k?(f.dir>0?"ascending":"descending"):"none"}"`:""}>${l}${s?`<span class="a">${f.sort===k?(f.dir>0?"↑":"↓"):"↕"}</span>`:""}</th>`).join("");
+  const body=slice.map((row,i)=>{const rk=start+i+1;
+    if(v==="creators"){const m=row.m;return `<tr data-href="#creator-${row.id}" tabindex="0"><td class="rank">${rk}</td>
+      <td><div class="ent">${avatar(row.name,34)}<div><b>${hl(row.name,q)}</b><small>${row.niche} · ${row.country}</small></div></div></td>
+      <td><div class="stack">${m.cos.slice(0,4).map(l=>mark(l.co)).join("")}${m.cos.length>4?`<span class="more">+${m.cos.length-4}</span>`:""}</div></td>
+      <td class="r num"><b>${m.count}</b></td><td>${m.sector}</td>
+      <td class="r num">${valCell(m.value.v,m.value.ev)}</td><td class="r num">${valCell(m.raised.v,null)}</td><td class="r num">${valCell(m.rev.v,m.rev.ev)}</td>
+      <td class="r faint" title="${fmt(D(m.updated))}">${ago(m.updated)}</td></tr>`}
+    return `<tr data-href="#company-${row.id}" tabindex="0"><td class="rank">${rk}</td>
+      <td><div class="ent">${mark(row,34)}<div><b>${hl(row.name,q)}</b><small>${row.country} · est. ${row.founded}</small></div></div></td>
+      <td><div class="stack">${row.creators.slice(0,3).map(x=>avatar(x.cr.name,28)).join("")}</div><small class="muted" style="font-size:12px">${row.creators.map(x=>x.cr.name).slice(0,2).join(", ")}${row.creators.length>2?" +"+(row.creators.length-2):""}</small></td>
+      <td>${row.model}</td><td>${row.sector}</td><td class="r num">${valCell(row.val,row.valEv)}</td><td class="r num">${valCell(row.raised,null)}</td><td class="r num">${valCell(row.rev,row.revEv)}</td>
+      <td><span class="pill st-${row.status}">${row.status}</span></td><td class="r faint" title="${fmt(D(row.updated))}">${ago(row.updated)}</td></tr>`}).join("");
+  const mobile=slice.map((row,i)=>{const rk=start+i+1;
+    if(v==="creators"){const m=row.m;return `<div class="mrow"><div class="h"><span class="rank">${rk}</span><a class="ent" href="#creator-${row.id}">${avatar(row.name,36)}<div style="min-width:0"><b>${hl(row.name,q)}</b><small>${row.niche} · ${row.country}</small></div></a><div class="k"><b>${m.count}</b>businesses</div><button class="tg" aria-label="Show metrics" aria-expanded="false">${ICON.chev}</button></div>
+      <div class="mx"><div><small>Company value</small>${valCell(m.value.v,m.value.ev)}</div><div><small>Raised</small>${valCell(m.raised.v,null)}</div><div><small>Revenue</small>${valCell(m.rev.v,m.rev.ev)}</div><div><small>Updated</small>${ago(m.updated)}</div><div class="full"><small>Portfolio</small>${m.cos.map(l=>l.co.name).join(", ")}</div></div></div>`}
+    return `<div class="mrow"><div class="h"><span class="rank">${rk}</span><a class="ent" href="#company-${row.id}">${mark(row,36)}<div style="min-width:0"><b>${hl(row.name,q)}</b><small>${row.sector} · ${row.country}</small></div></a><div class="k"><b>${row.val==null?"—":(row.valEv==="E"?"~":"")+money(row.val)}</b>valuation</div><button class="tg" aria-label="Show metrics" aria-expanded="false">${ICON.chev}</button></div>
+      <div class="mx"><div><small>Raised</small>${valCell(row.raised,null)}</div><div><small>Revenue</small>${valCell(row.rev,row.revEv)}</div><div><small>Status</small>${row.status}</div><div><small>Updated</small>${ago(row.updated)}</div><div class="full"><small>Creators</small>${row.creators.map(x=>x.cr.name).join(", ")}</div></div></div>`}).join("");
+  const pg=[];for(let i=1;i<=pages;i++)pg.push(`<button class="${i===IX.page?"on":""}" data-pg="${i}">${i}</button>`);
+  const filtered=Object.entries(f).some(([k,val])=>!["sort","dir"].includes(k)&&val)||IX.q;
+  $("#ixt").innerHTML=`<div class="tablecard">
+    ${rows.length?`<div class="tscroll"><table class="ix"><thead><tr>${th}</tr></thead><tbody>${body}</tbody></table></div><div class="mrows">${mobile}</div>`:`<div style="padding:60px 20px;text-align:center"><h3 style="font-size:24px;margin:0 0 6px">No matching ${v}</h3><p class="muted">Know one we're missing? <button class="clear" data-modal="intake" data-cat="Submit a business">Submit a business</button></p></div>`}
+    <div class="ix-foot"><span>Showing ${rows.length?start+1:0}–${start+slice.length} of ${rows.length} ${v} · Sorted by ${SORTLBL[f.sort]} (${f.dir>0?"ascending":"descending"})${filtered?` · <button class="clear" id="ixclear">Clear filters</button>`:""}</span>
+      <div class="pager"><button data-pg="${IX.page-1}" ${IX.page<=1?"disabled":""} aria-label="Previous page">←</button>${pg.join("")}<button data-pg="${IX.page+1}" ${IX.page>=pages?"disabled":""} aria-label="Next page">→</button></div></div></div>`;
+}
+function bindIndex(){
+  renderFilters();renderTable();
+  $("#ixt").addEventListener("click",e=>{
+    const th=e.target.closest("th[data-sort]");if(th){const f=IX[IX.view],k=th.dataset.sort;f.dir=f.sort===k?-f.dir:(["name","sector","model","status"].includes(k)?1:-1);f.sort=k;renderTable();return}
+    const pg=e.target.closest("[data-pg]");if(pg&&!pg.disabled){IX.page=+pg.dataset.pg;renderTable();$("#ixt").scrollIntoView({behavior:"smooth",block:"start"});return}
+    if(e.target.closest("#ixclear")){Object.assign(IX[IX.view],IX.view==="creators"?{niche:"",sector:"",country:""}:{sector:"",country:"",status:""});IX.q="";renderFilters();renderTable();return}
+    const tg=e.target.closest(".tg");if(tg){const r=tg.closest(".mrow");r.classList.toggle("open");tg.setAttribute("aria-expanded",r.classList.contains("open"));return}
+    const tr=e.target.closest("tr[data-href]");if(tr){track("profile_open",{from:"index",href:tr.dataset.href});location.hash=tr.dataset.href}
+  });
+  $("#ixt").addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.matches("tr[data-href]"))location.hash=e.target.dataset.href});
+  const uq=$("#uq"),dr=$("#udrop");
+  uq.addEventListener("input",()=>{const q=uq.value.trim();if(!q){dr.classList.remove("open");return}dr.innerHTML=searchHTML(q,3);dr.classList.add("open")});
+  uq.addEventListener("keydown",e=>{if(e.key==="Enter"){const a=$(".pi",dr);if(a)a.click()}if(e.key==="Escape"){dr.classList.remove("open")}});
+  document.addEventListener("click",e=>{if(!e.target.closest("#usearch"))dr?.classList.remove("open")},{once:false});
+}
+
+/* universal search */
+function searchItems(q,lim=4){
+  q=q.trim().toLowerCase();const m=t=>!q||t.toLowerCase().includes(q);
+  return [
+    ["Creators",CREATORS.filter(c=>m(c.name+" "+c.niche+" "+c.country)).slice(0,lim).map(c=>({h:"#creator-"+c.id,t:c.name,d:`${c.niche} · ${c.m.count} businesses`,ic:avatar(c.name,32)}))],
+    ["Companies",COMPANIES.filter(c=>m(c.name+" "+c.sector+" "+c.country+" "+c.model)).slice(0,lim).map(c=>({h:"#company-"+c.id,t:c.name,d:`${c.sector} · ${c.status}`,ic:mark(c,32)}))],
+    ["People",uniq(PEOPLE.filter(p=>m(p.name+" "+p.role)).map(p=>p.name)).slice(0,lim).map(n=>{const p=PEOPLE.find(x=>x.name===n);return {h:"#company-"+p.c,t:n,d:`${p.role} · ${CO(p.c).name}`,ic:avatar(n,32)}})],
+    ["Stories",STORIES.filter(s=>m(s.title+" "+s.dek+" "+s.format)).slice(0,lim).map(s=>({h:"#story-"+s.id,t:s.title,d:`${s.format} · ${fmt(D(s.date))}`,ic:`<span style="width:32px;height:32px;display:block">${art(s.id)}</span>`}))],
+    ["Events",EVENTS.filter(e=>m(e.title+" "+e.city)).slice(0,lim).map(e=>({h:"#event-"+e.id,t:e.title,d:`${fmt(D(e.start))} · ${e.city}`,ic:`<b style="font-family:var(--serif)">${D(e.start).getDate()}</b>`}))]
+  ].filter(g=>g[1].length);
+}
+function searchHTML(q,lim){const g=searchItems(q,lim);let i=0;return g.length?g.map(([n,items])=>`<div class="pg">${n}</div>${items.map(it=>`<a class="pi" href="${it.h}" data-i="${i++}"><span class="ic">${it.ic}</span><div><b>${hl(it.t,q.toLowerCase())}</b><span>${esc(it.d)}</span></div></a>`).join("")}`).join(""):`<div style="padding:28px;text-align:center" class="muted">No results for “${esc(q)}”. <button class="clear" data-modal="intake" data-cat="Submit a business">Submit a business</button></div>`}
+
+/* =====================================================================
+   PROFILES
+   ===================================================================== */
+function profileActions(kind,id,name){
+  const on=follows.has(kind+":"+id);
+  return `<div class="pactions">
+    <button class="btn ${on?"btn-dark":"btn-line"}" data-follow="${kind}:${id}" data-name="${esc(name)}">${ICON.bell} ${on?"Following":"Follow"}</button>
+    <button class="btn btn-line" data-share="${kind}:${id}">${ICON.share} Share</button>
+    <button class="btn btn-line" data-modal="edit" data-target="${esc(name)}">${ICON.edit} Suggest an edit</button>
+  </div>`;
+}
+function storyLi(s){return `<a class="li" href="#story-${s.id}"><span style="width:64px;height:42px;border-radius:8px;overflow:hidden;flex:none;display:block;position:relative">${art(s.id)}</span><div class="t"><b>${esc(s.title)}</b><span>${s.format}${s.video?" · Video":""} · ${fmt(D(s.date))}</span></div></a>`}
+function videoEmbed(s){return `<a class="video" href="#story-${s.id}" aria-label="Watch ${esc(s.title)}">${art(s.id+"v")}<span class="play"><span>${ICON.play}</span></span><span class="cap"><span>${esc(s.format)}: ${esc(s.title)}</span><span>${s.mins}:00</span></span></a>`}
+function sourcesFor(c){ // SAMPLE evidence entries — replace with real source URLs from the CMS
+  const s=[{t:`${c.name} company announcement`,type:"Primary",date:c.updated,ev:"Reported"}];
+  if(c.raised)s.push({t:"Funding announcement",type:"Primary",date:c.updated,ev:"Reported"});
+  if(c.valEv==="E"||c.revEv==="E")s.push({t:"Reachworth estimate (see Methodology)",type:"Estimate",date:c.updated,ev:"Estimated"});
+  STORIES.filter(x=>x.companies.includes(c.id)).slice(0,1).forEach(x=>s.push({t:`Reachworth: ${x.title}`,type:"Original reporting",date:x.date,ev:"Reported",h:"#story-"+x.id}));
+  return s;
+}
+function pageCompany(id){
+  const c=CO(id);if(!c)return notFound();
+  const stories=STORIES.filter(s=>s.companies.includes(c.id)),vid=stories.find(s=>s.video);
+  const ppl=PEOPLE.filter(p=>p.c===c.id),rel=COMPANIES.filter(x=>x.sector===c.sector&&x.id!==c.id).slice(0,4);
+  const tile=(l,v,ev,note)=>`<div class="tile"><small>${l}</small><b>${v==null?`<span class="und" style="font-size:18px">Undisclosed</span>`:(ev==="E"?"~":"")+money(v)}</b>${v!=null&&ev?`<span class="ev ev-${ev}">${ev==="E"?"estimate":"reported"}</span>`:""}<span class="asof">${note||"As of "+fmt(D(c.updated))}</span></div>`;
+  return `<div class="wrap fade">
+    <div class="crumbs"><a href="#companies">Index</a> / <a href="#companies">Companies</a> / ${esc(c.name)}</div>
+    <div class="phead">${mark(c,76)}<div class="id"><div class="sub"><span class="pill st-${c.status}">${c.status}</span><span>${c.sector}</span>·<span>${c.model}</span>·<span>${c.country}</span>·<span>Founded ${c.founded}</span></div><h1>${esc(c.name)}</h1><p class="muted" style="margin:0;font-size:17px;max-width:640px">${esc(c.desc)}</p></div>${profileActions("company",c.id,c.name)}</div>
+    <div class="tiles">${tile("Valuation",c.val,c.valEv)}${tile("Capital raised",c.raised,c.raised?"R":null)}${tile("Revenue",c.rev,c.revEv)}<div class="tile"><small>Last verified</small><b style="font-size:22px">${fmt(D(c.updated))}</b><span class="asof">${sourcesFor(c).length} sources · <a href="#methodology" style="text-decoration:underline">how we verify</a></span></div></div>
+    <div class="pgrid"><div>
+      ${vid?`<div class="sec"><h3>Featured video</h3>${videoEmbed(vid)}</div>`:""}
+      <div class="sec"><h3>Associated creators</h3><div class="list">${c.creators.map(({cr,link})=>`<a class="li" href="#creator-${cr.id}">${avatar(cr.name,40)}<div class="t"><b>${cr.name}</b><span>${link.role} · ${period(link)}</span></div><div class="rt muted">${cr.audience>=1?cr.audience+"M":Math.round(cr.audience*1000)+"K"} on ${cr.platform}</div></a>`).join("")}</div></div>
+      ${ppl.length?`<div class="sec"><h3>Operators &amp; investors</h3><div class="list">${ppl.map(p=>`<div class="li">${avatar(p.name,40)}<div class="t"><b>${p.name}</b><span>${p.role} · ${p.from}–present</span></div></div>`).join("")}</div></div>`:""}
+      ${stories.length?`<div class="sec"><h3>Stories &amp; interviews <a href="#stories">All stories</a></h3><div class="list">${stories.map(storyLi).join("")}</div></div>`:""}
+      <div class="sec"><h3>Sources &amp; evidence <button data-modal="edit" data-target="${esc(c.name)}">Suggest a correction</button></h3><div class="list">${sourcesFor(c).map(s=>`<${s.h?`a href="${s.h}"`:"div"} class="li"><div class="t"><b>${esc(s.t)}</b><span>${s.type} · published ${fmt(D(s.date))}</span></div><span class="pill ${s.ev==="Estimated"?"":"st-Active"}">${s.ev}</span></${s.h?"a":"div"}>`).join("")}</div>
+        <p class="faint" style="font-size:12.5px;margin:8px 2px 0">Last verified ${fmt(D(c.updated))} by Reachworth Research. Change history available on request.</p></div>
+      ${rel.length?`<div class="sec"><h3>Related companies</h3><div class="list">${rel.map(x=>`<a class="li" href="#company-${x.id}">${mark(x,36)}<div class="t"><b>${x.name}</b><span>${x.model} · ${x.country}</span></div><div class="rt">${valCell(x.val,x.valEv)}</div></a>`).join("")}</div></div>`:""}
+    </div>
+    <aside class="side">
+      <div class="box"><h4>Company facts</h4><dl class="kv"><dt>Sector</dt><dd>${c.sector}</dd><dt>Model</dt><dd>${c.model}</dd><dt>HQ</dt><dd>${c.country}</dd><dt>Founded</dt><dd>${c.founded}</dd><dt>Status</dt><dd>${c.status}</dd></dl></div>
+      <div class="box"><h4>Follow ${esc(c.name)}</h4><p>Get an email when we publish new figures, funding or coverage.</p><button class="btn btn-dark" style="width:100%" data-follow="company:${c.id}" data-name="${esc(c.name)}">${ICON.bell} Follow company</button></div>
+      <div class="box"><h4>Is this your company?</h4><p>Submit corrections or new information with a source. Edits are reviewed before publishing.</p><button class="btn btn-line" style="width:100%" data-modal="edit" data-target="${esc(c.name)}">Suggest an edit</button></div>
+    </aside></div>
+  </div>`;
+}
+function pageCreator(id){
+  const cr=CR(id);if(!cr)return notFound();const m=cr.m;
+  const stories=STORIES.filter(s=>s.creators.includes(cr.id)),vid=stories.find(s=>s.video);
+  const ppl=PEOPLE.filter(p=>cr.links.some(l=>l.c===p.c));
+  const rel=CREATORS.filter(x=>x.niche===cr.niche&&x.id!==cr.id).slice(0,4);
+  return `<div class="wrap fade">
+    <div class="crumbs"><a href="#index">Index</a> / <a href="#index">Creators</a> / ${esc(cr.name)}</div>
+    <div class="phead">${avatar(cr.name,84)}<div class="id"><div class="sub"><span class="pill peach">${cr.niche}</span><span>${cr.country}</span>·<span>${cr.audience>=1?cr.audience+"M":Math.round(cr.audience*1000)+"K"} audience on ${cr.platform}</span></div><h1>${esc(cr.name)}</h1><p class="muted" style="margin:0;font-size:16px">${m.count} tracked ${m.count===1?"business":"businesses"} · primary sector ${m.sector}</p></div>${profileActions("creator",cr.id,cr.name)}</div>
+    <div class="tiles">
+      <div class="tile"><small>Tracked businesses</small><b>${m.count}</b><span class="asof">Founder, partner &amp; investor roles</span></div>
+      <div class="tile"><small>Disclosed company value</small><b>${m.value.v==null?`<span class="und" style="font-size:18px">Undisclosed</span>`:(m.value.ev==="E"?"~":"")+money(m.value.v)}</b>${m.value.v!=null&&m.value.ev?`<span class="ev ev-${m.value.ev}">${m.value.ev==="E"?"incl. estimates":"reported"}</span>`:""}<span class="asof">Combined, founded companies · not net worth</span></div>
+      <div class="tile"><small>Capital raised</small><b>${m.raised.v==null?`<span class="und" style="font-size:18px">Undisclosed</span>`:money(m.raised.v)}</b><span class="asof">By founded companies</span></div>
+      <div class="tile"><small>Last updated</small><b style="font-size:22px">${fmt(D(m.updated))}</b><span class="asof"><a href="#methodology" style="text-decoration:underline">Methodology</a></span></div>
+    </div>
+    <div class="pgrid"><div>
+      <div class="sec"><h3>Portfolio</h3><div class="list">${m.cos.map(l=>`<a class="li" href="#company-${l.co.id}">${mark(l.co,40)}<div class="t"><b>${l.co.name}</b><span>${l.role} · ${period(l)} · ${l.co.sector}</span></div><div class="rt"><span class="pill st-${l.co.status}">${l.co.status}</span><div style="margin-top:4px">${valCell(l.co.val,l.co.valEv)}</div></div></a>`).join("")}</div></div>
+      ${vid?`<div class="sec"><h3>Interview &amp; breakdowns</h3>${videoEmbed(vid)}</div>`:""}
+      ${stories.length?`<div class="sec"><h3>Stories <a href="#stories">All stories</a></h3><div class="list">${stories.map(storyLi).join("")}</div></div>`:""}
+      ${ppl.length?`<div class="sec"><h3>Professional relationships</h3><div class="list">${ppl.map(p=>`<a class="li" href="#company-${p.c}">${avatar(p.name,40)}<div class="t"><b>${p.name}</b><span>${p.role} at ${CO(p.c).name} · ${p.from}–present</span></div></a>`).join("")}</div></div>`:""}
+      ${rel.length?`<div class="sec"><h3>Related creators</h3><div class="list">${rel.map(x=>`<a class="li" href="#creator-${x.id}">${avatar(x.name,40)}<div class="t"><b>${x.name}</b><span>${x.m.count} businesses · ${x.country}</span></div><div class="rt">${valCell(x.m.value.v,x.m.value.ev)}</div></a>`).join("")}</div></div>`:""}
+    </div>
+    <aside class="side">
+      <div class="box"><h4>Follow ${esc(cr.name.split(" ")[0])}'s businesses</h4><p>Email updates when any of their companies changes: funding, launches, exits.</p><button class="btn btn-dark" style="width:100%" data-follow="creator:${cr.id}" data-name="${esc(cr.name)}">${ICON.bell} Follow</button></div>
+      <div class="box"><h4>How much is your reach worth?</h4><p>See what an audience like yours earns and compare with businesses in the Index.</p><a class="btn btn-line" style="width:100%" href="#tools">Try the tool →</a></div>
+      <div class="box"><h4>Are you ${esc(cr.name.split(" ")[0])}?</h4><p>Correct or add business information with a source. Reviewed before publishing.</p><button class="btn btn-line" style="width:100%" data-modal="edit" data-target="${esc(cr.name)}">Suggest an edit</button></div>
+    </aside></div>
+  </div>`;
+}
+
+/* =====================================================================
+   STORIES
+   ===================================================================== */
+const SS={format:"All",q:""};
+function storyCard(s,q=""){
+  return `<a class="scard" href="#story-${s.id}"><div class="thumb">${art(s.id)}${s.video?`<span class="vb">${ICON.vid} ${s.mins} min video</span>`:""}</div>
+   <div class="meta">${s.format} · ${fmt(D(s.date))}${s.video?"":" · "+s.mins+" min read"}</div><h3>${hl(s.title,q)}</h3><p>${hl(s.dek,q)}</p>
+   <div class="tagrow">${s.companies.slice(0,3).map(id=>`<span class="pill">${CO(id).name}</span>`).join("")}</div></a>`;
+}
+function pageStories(){
+  const f=["All","Business Breakdown","Business Interview","Case Study","News"];
+  return `<div class="wrap fade">
+    <section class="page-hero"><div class="eyebrow" style="color:var(--clay)">Stories</div><h1>Breakdowns, interviews <span class="underline">&amp; case studies.</span></h1><p>Source-backed reporting on creator-led companies. Every story links to the companies and people in the Index.</p></section>
+    <div class="toolbar"><label class="field">${ICON.search}<input id="sq" placeholder="Search stories…" value="${esc(SS.q)}"></label>${f.map(x=>`<button class="chip ${SS.format===x?"on":""}" data-fmt="${x}">${({"All":"All","Business Breakdown":"Breakdowns","Business Interview":"Interviews","Case Study":"Case studies","News":"News"})[x]}</button>`).join("")}
+      <button class="clear" style="margin-left:auto" data-modal="intake" data-cat="Story tip">Send a story tip</button></div>
+    <div id="sres"></div></div>`;
+}
+function updateStories(){
+  const q=SS.q.trim().toLowerCase();
+  const list=STORIES.filter(s=>(SS.format==="All"||s.format===SS.format)&&(!q||(s.title+" "+s.dek+" "+s.companies.map(c=>CO(c).name).join(" ")+" "+s.creators.map(c=>CR(c).name).join(" ")).toLowerCase().includes(q))).sort((a,b)=>D(b.date)-D(a.date));
+  $("#sres").innerHTML=list.length?`<div class="sgrid">${list.map(s=>storyCard(s,q)).join("")}</div>`:`<div style="padding:60px;text-align:center" class="muted">No stories match.</div>`;
+}
+function bindStories(){
+  $("#sq").addEventListener("input",e=>{SS.q=e.target.value;updateStories()});
+  $$("[data-fmt]").forEach(b=>b.addEventListener("click",()=>{SS.format=b.dataset.fmt;$$("[data-fmt]").forEach(x=>x.classList.toggle("on",x===b));updateStories()}));
+  updateStories();
+}
+function pageStory(id){
+  const s=STORIES.find(x=>x.id===id);if(!s)return notFound();
+  const rel=STORIES.filter(x=>x.id!==s.id&&x.companies.some(c=>s.companies.includes(c))).concat(STORIES.filter(x=>x.id!==s.id)).filter((x,i,a)=>a.indexOf(x)===i).slice(0,3);
+  const body=s.body.map((p,i)=>i===1&&s.quote?`<p>${p}</p><blockquote>“${s.quote}”</blockquote>`:`<p>${p}</p>`).join("");
+  return `<article class="fade">
+    <div class="narrow reader"><a class="muted" href="#stories" style="font-size:14px;font-weight:600">← Stories</a>
+      <div style="margin-top:20px"><span class="pill dark">${s.format}</span></div>
+      <h1>${esc(s.title)}</h1><p class="dek">${esc(s.dek)}</p>
+      <div class="muted" style="font-size:14px">Reachworth · ${fmt(D(s.date),{month:"long",day:"numeric",year:"numeric"})} · ${s.video?s.mins+" min video":s.mins+" min read"}</div></div>
+    <div class="narrow" style="margin-top:24px">${s.video?videoEmbed(s):`<div style="aspect-ratio:16/8;border-radius:16px;overflow:hidden">${art(s.id)}</div>`}</div>
+    <div class="narrow reader">
+      <div class="article">${body}</div>
+      <div class="takeaways"><div class="eyebrow">Key takeaways</div><ul>${s.takeaways.map(t=>`<li>${t}</li>`).join("")}</ul></div>
+      <div class="sec"><h3>In the Index</h3><div class="list">
+        ${s.companies.map(id=>{const c=CO(id);return `<a class="li" href="#company-${c.id}">${mark(c,38)}<div class="t"><b>${c.name}</b><span>${c.sector} · ${c.status}</span></div><div class="rt">${valCell(c.val,c.valEv)}</div></a>`}).join("")}
+        ${s.creators.map(id=>{const c=CR(id);return `<a class="li" href="#creator-${c.id}">${avatar(c.name,38)}<div class="t"><b>${c.name}</b><span>${c.m.count} businesses · ${c.niche}</span></div></a>`}).join("")}
+      </div></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 30px"><button class="btn btn-line" data-share="story:${s.id}">${ICON.share} Share</button><button class="btn btn-line" data-modal="edit" data-target="${esc(s.title)}">${ICON.edit} Report an error</button></div>
+      <div style="background:var(--peach2);border-radius:18px;padding:24px">
+        <h3 style="font-size:24px;margin:0 0 6px">Get Reachworth Weekly</h3><p class="muted" style="margin:0 0 14px">One five-minute briefing on the business behind influence, every Monday.</p>
+        ${inlineSignup("story")}</div>
+    </div>
+    <div class="wrap"><div class="sec" style="margin-top:40px"><h3 style="font-size:13px">Related stories</h3><div class="sgrid">${rel.map(x=>storyCard(x)).join("")}</div></div></div>
+  </article>`;
+}
+function inlineSignup(src){return `<form class="isign" data-src="${src}" style="display:flex;gap:8px;flex-wrap:wrap"><input class="sel" type="email" required placeholder="you@example.com" style="flex:1;min-width:200px;height:44px" aria-label="Email"><button class="btn btn-dark" style="height:44px">Subscribe free</button></form><div class="ok"></div>`}
+
+/* =====================================================================
+   TOOLS — flagship: How much is your reach worth?
+   ===================================================================== */
+const T={handle:"",platform:"YouTube",followers:250000,views:60000,niche:"Business",step:1};
+function pageTools(){
+  return `<div class="wrap fade">
+    <section class="page-hero"><div class="eyebrow" style="color:var(--clay)">Tools</div><h1>How much is your <span class="underline">reach worth?</span></h1><p>Enter your handle and audience to get an instant sponsorship-value preview, then compare yourself with creator businesses in the Index.</p></section>
+    <div class="tool">
+      <form class="in" id="toolForm">
+        <div class="steps"><span class="on">1 · Your reach</span><span id="st2">2 · Preview</span><span id="st3">3 · Full report</span></div>
+        <label class="flabel" for="t-handle">Your handle</label><input class="sel" id="t-handle" placeholder="@yourhandle" value="${esc(T.handle)}" required>
+        <div class="row2"><div><label class="flabel" for="t-platform">Main platform</label><select class="sel" id="t-platform" style="width:100%">${Object.keys(RATES).map(p=>`<option ${T.platform===p?"selected":""}>${p}</option>`).join("")}</select></div>
+        <div><label class="flabel" for="t-niche">Niche</label><select class="sel" id="t-niche" style="width:100%">${Object.keys(NICHE_MULT).map(p=>`<option ${T.niche===p?"selected":""}>${p}</option>`).join("")}</select></div></div>
+        <div class="row2"><div><label class="flabel" for="t-followers">Followers / subscribers</label><input class="sel" id="t-followers" type="number" min="100" step="100" value="${T.followers}"></div>
+        <div><label class="flabel" for="t-views">Average views per post</label><input class="sel" id="t-views" type="number" min="10" step="10" value="${T.views}"></div></div>
+        <button class="btn btn-dark" style="width:100%;margin-top:18px;height:46px" type="submit">See my preview</button>
+        <p class="faint" style="font-size:12px;margin:10px 0 0">No sign-up needed for the preview. We only ask for email if you want the full report.</p>
+      </form>
+      <div class="out" id="toolOut">
+        <div class="eyebrow" style="color:#d9b7a3">Instant preview</div>
+        <div style="margin-top:60px;color:#a9a39b;font-size:15px;max-width:320px">Fill in your reach on the left to see an estimated value per sponsored post, based on benchmark rate ranges.</div>
+      </div>
+    </div>
+    <div id="toolMore"></div>
+    <div class="callout" style="margin-top:30px"><b>How this works.</b> The preview multiplies your average views by benchmark sponsorship rate ranges for your platform and niche. It's a range, not an income prediction. ${SAMPLE_DATA?"<b>The rate table in this build is an illustrative placeholder; it must be replaced with Reachworth's sourced benchmarks before launch.</b>":""} <a href="#methodology" style="text-decoration:underline">Methodology</a></div>
+  </div>`;
+}
+function calcTool(){
+  const [lo,hi]=RATES[T.platform],mult=NICHE_MULT[T.niche]||1;
+  const low=T.views/1000*lo*mult,high=T.views/1000*hi*mult,er=T.followers?T.views/T.followers:0;
+  return {low,high,er,monthly:[low*2,high*4]};
+}
+const usd=n=>n>=1e6?"$"+(n/1e6).toFixed(1)+"M":n>=1e3?"$"+(Math.round(n/100)/10)+"K":"$"+Math.round(n);
+function bindTools(){
+  const f=$("#toolForm");
+  f.addEventListener("submit",e=>{e.preventDefault();
+    T.handle=$("#t-handle").value.trim().replace(/^@?/,"@");T.platform=$("#t-platform").value;T.niche=$("#t-niche").value;T.followers=Math.max(0,+$("#t-followers").value);T.views=Math.max(0,+$("#t-views").value);
+    const r=calcTool(),scale=Math.min(100,Math.log10(Math.max(10,r.high))/5*100);
+    track("tool_preview",{platform:T.platform,niche:T.niche});
+    $("#st2").classList.add("on");
+    $("#toolOut").innerHTML=`<div class="eyebrow" style="color:#d9b7a3">Preview for ${esc(T.handle)}</div>
+      <div style="margin-top:16px;color:#c9c4bd;font-size:14px">Estimated value per sponsored post</div>
+      <div class="big">${usd(r.low)} – ${usd(r.high)}</div>
+      <div class="bar"><i style="left:${Math.max(0,scale-22)}%;right:${100-scale}%"></i></div>
+      <div class="note">Benchmark range for ${T.niche} creators on ${T.platform}</div>
+      <div class="mini"><div><small>View rate</small><b>${(r.er*100).toFixed(1)}%</b></div><div><small>2–4 deals / month</small><b>${usd(r.monthly[0])} – ${usd(r.monthly[1])}</b></div></div>
+      <form id="reportForm" style="margin-top:22px;border-top:1px solid #2c2c2c;padding-top:18px">
+        <div style="font-weight:600;margin-bottom:8px">Email me the full report</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><input class="sel" type="email" required placeholder="you@example.com" style="flex:1;min-width:180px;background:#262626;border-color:#3a3a3a;color:#fff" aria-label="Email for report"><button class="btn" style="background:#fff;color:#111">Send report</button></div>
+        <label class="consent" style="color:#a9a39b"><input type="checkbox" checked disabled> Send my report to this email (required for delivery)</label>
+        <label class="consent" style="color:#a9a39b"><input type="checkbox" id="r-nl"> Also subscribe me to Reachworth Weekly</label>
+        <label class="consent" style="color:#a9a39b"><input type="checkbox" id="r-gaply"> I'm open to Gaply contacting me about building a business</label>
+        <div class="ok" style="background:#1f3a2b;color:#cfe9d8"></div>
+      </form>`;
+    const comps=CREATORS.filter(c=>c.niche===T.niche||c.platform===T.platform).sort((a,b)=>Math.abs(a.audience*1e6-T.followers)-Math.abs(b.audience*1e6-T.followers)).slice(0,4);
+    $("#toolMore").innerHTML=`<div class="sec" style="margin-top:34px"><h3>Creators with similar reach who built businesses <a href="#index">Open the Index</a></h3><div class="list">${comps.map(c=>`<a class="li" href="#creator-${c.id}">${avatar(c.name,40)}<div class="t"><b>${c.name}</b><span>${c.audience>=1?c.audience+"M":Math.round(c.audience*1000)+"K"} on ${c.platform} · ${c.m.cos.map(l=>l.co.name).join(", ")}</span></div><div class="rt">${valCell(c.m.value.v,c.m.value.ev)}</div></a>`).join("")}</div></div>
+      <div class="box" style="display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;background:var(--ink);color:#fff;border:0;padding:24px"><div><h4 style="font-size:18px;margin:0 0 4px">Thinking about building a business?</h4><p style="margin:0;color:#c9c4bd">Gaply's venture studio partners with creators to validate and build products. Separate from Reachworth editorial.</p></div><button class="btn" style="background:#fff;color:#111" data-modal="gaply">Build with Gaply →</button></div>`;
+    $("#reportForm").addEventListener("submit",ev=>{ev.preventDefault();const em=$("input[type=email]",ev.target).value;
+      track("tool_report_optin",{newsletter:$("#r-nl").checked,gaply:$("#r-gaply").checked});
+      $("#st3").classList.add("on");const ok=$(".ok",ev.target);ok.textContent=`Report queued for ${em}. (Demo: connect your email platform to deliver reports.)`;ok.style.display="block"});
+    if(innerWidth<1000)$("#toolOut").scrollIntoView({behavior:"smooth"});
+  });
+}
+
+/* =====================================================================
+   EVENTS
+   ===================================================================== */
+const ES={q:"",region:"",type:"",when:"upcoming"};
+const evEnd=e=>D(e.end||e.start);
+function dateBox(e){const s=D(e.start),en=evEnd(e);return `<div class="datebox"><small>${fmt(s,{month:"short"})}</small><b>${s.getDate()}</b><span>${e.end?"to "+en.getDate():fmt(s,{weekday:"short"})}</span></div>`}
+function pageEvents(){
+  return `<div class="wrap fade">
+    <section class="page-hero"><div class="eyebrow" style="color:var(--clay)">Events</div><h1>Where the creator <span class="underline">industry meets.</span></h1><p>Conferences, meetups and workshops, with original coverage and the people speaking at them.</p></section>
+    <div class="toolbar"><label class="field">${ICON.search}<input id="eq" placeholder="Search events or cities…" value="${esc(ES.q)}"></label>
+      <select class="sel ${ES.region?"set":""}" id="eregion"><option value="">Anywhere</option>${uniq(EVENTS.map(e=>e.region)).sort().map(r=>`<option ${ES.region===r?"selected":""}>${r}</option>`).join("")}</select>
+      <select class="sel ${ES.type?"set":""}" id="etype"><option value="">All types</option>${uniq(EVENTS.map(e=>e.type)).sort().map(r=>`<option ${ES.type===r?"selected":""}>${r}</option>`).join("")}</select>
+      <select class="sel ${ES.when!=="upcoming"?"set":""}" id="ewhen">${[["upcoming","Upcoming"],["30","Next 30 days"],["90","Next 3 months"],["past","Past events"],["all","All dates"]].map(([k,l])=>`<option value="${k}" ${ES.when===k?"selected":""}>${l}</option>`).join("")}</select>
+      <button class="btn btn-line btn-sm" style="margin-left:auto" data-modal="intake" data-cat="Submit an event">+ Submit an event</button></div>
+    <div id="eres"></div></div>`;
+}
+function updateEvents(){
+  const q=ES.q.trim().toLowerCase();
+  const list=EVENTS.filter(e=>{const s=D(e.start),en=evEnd(e);
+    if(ES.region&&e.region!==ES.region)return false;if(ES.type&&e.type!==ES.type)return false;
+    if(q&&!(e.title+" "+e.city+" "+e.venue+" "+e.desc).toLowerCase().includes(q))return false;
+    if(ES.when==="upcoming")return en>=TODAY;if(ES.when==="past")return en<TODAY;if(ES.when==="all")return true;
+    return en>=TODAY&&s<=addDays(TODAY,+ES.when)}).sort((a,b)=>ES.when==="past"?D(b.start)-D(a.start):D(a.start)-D(b.start));
+  const g={};list.forEach(e=>{const k=fmt(D(e.start),{month:"long",year:"numeric"});(g[k]||=[]).push(e)});
+  $("#eres").innerHTML=list.length?Object.entries(g).map(([k,evs])=>`<div class="month">${k}</div>${evs.map(e=>`<div class="erow">${dateBox(e)}<a href="#event-${e.id}"><span class="pill ${e.region==="Online"?"":"peach"}">${e.type}</span><h3>${esc(e.title)}</h3><div class="where"><span>${e.region==="Online"?"Online":e.city+", "+e.country}</span><span>${e.price}</span>${e.speakers.length?`<span>${e.speakers.length} featured ${e.speakers.length===1?"speaker":"speakers"}</span>`:""}</div></a><div class="acts"><a class="btn btn-line btn-sm" href="#event-${e.id}">View event →</a></div></div>`).join("")}`).join(""):`<div style="padding:60px;text-align:center" class="muted">No events match. Know one? <button class="clear" data-modal="intake" data-cat="Submit an event">Submit an event</button></div>`;
+}
+function bindEvents(){
+  $("#eq").addEventListener("input",e=>{ES.q=e.target.value;updateEvents()});
+  [["eregion","region"],["etype","type"],["ewhen","when"]].forEach(([id,k])=>$("#"+id).addEventListener("change",e=>{ES[k]=e.target.value;e.target.classList.toggle("set",k==="when"?ES.when!=="upcoming":!!ES[k]);updateEvents()}));
+  updateEvents();
+}
+function gcal(e){const ymd=x=>`${x.getFullYear()}${String(x.getMonth()+1).padStart(2,"0")}${String(x.getDate()).padStart(2,"0")}`;return "https://calendar.google.com/calendar/render?action=TEMPLATE&text="+encodeURIComponent(e.title)+"&dates="+ymd(D(e.start))+"/"+ymd(addDays(evEnd(e),1))+"&details="+encodeURIComponent(e.desc)+"&location="+encodeURIComponent(e.region==="Online"?"Online":e.venue+", "+e.city)}
+function pageEvent(id){
+  const e=EVENTS.find(x=>x.id===id);if(!e)return notFound();
+  const s=D(e.start),en=evEnd(e),past=en<TODAY,cov=STORIES.filter(x=>x.companies.some(c=>e.companies.includes(c))).slice(0,3);
+  return `<div class="wrap fade"><div class="crumbs"><a href="#events">Events</a> / ${esc(e.title)}</div>
+    <div class="egrid"><div><div class="ecover">${art(e.id+"ev")}</div>
+      <div class="box" style="margin-top:16px"><h4>Hosted in</h4><p style="margin:0">${e.region==="Online"?"Online · "+e.venue:e.venue+", "+e.city+", "+e.country}</p></div></div>
+    <div>
+      <div class="sub" style="display:flex;gap:8px"><span class="pill peach">${e.type}</span>${past?`<span class="pill">Past event</span>`:""}</div>
+      <h1 style="font-size:clamp(36px,4.4vw,54px);letter-spacing:-1.8px;line-height:1.02;margin:12px 0 18px">${esc(e.title)}</h1>
+      <div class="list" style="margin-bottom:18px">
+        <div class="li"><span class="datebox" style="width:52px;padding:5px 0"><small>${fmt(s,{month:"short"})}</small><b style="font-size:20px;margin:2px 0 0">${s.getDate()}</b></span><div class="t"><b>${fmt(s,{weekday:"long",month:"long",day:"numeric"})}${e.end?" – "+fmt(en,{month:"long",day:"numeric"}):""}</b><span>${s.getFullYear()}</span></div></div>
+        <div class="li"><span class="mark" style="width:52px;height:52px;background:var(--soft);font-size:20px">📍</span><div class="t"><b>${e.region==="Online"?"Online":e.city+", "+e.country}</b><span>${esc(e.venue)}</span></div></div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px">${past?"":`<button class="btn btn-dark" data-toast="Add the official registration link in the CMS">Register · ${e.price}</button><a class="btn btn-line" target="_blank" rel="noreferrer" href="${gcal(e)}">Add to calendar ↗</a>`}<button class="btn btn-line" data-share="event:${e.id}">${ICON.share} Share</button></div>
+      <div class="sec"><h3>About</h3><p class="prose" style="margin:0">${esc(e.desc)}</p></div>
+      ${e.speakers.length?`<div class="sec"><h3>Featured speakers</h3><div class="list">${e.speakers.map(id=>{const c=CR(id);return `<a class="li" href="#creator-${c.id}">${avatar(c.name,40)}<div class="t"><b>${c.name}</b><span>${c.m.cos.filter(l=>/founder/i.test(l.role)).map(l=>l.role+", "+l.co.name).join(" · ")||c.niche}</span></div></a>`}).join("")}</div></div>`:""}
+      ${e.companies.length?`<div class="sec"><h3>Related companies</h3><div class="list">${e.companies.map(id=>{const c=CO(id);return `<a class="li" href="#company-${c.id}">${mark(c,38)}<div class="t"><b>${c.name}</b><span>${c.sector} · ${c.country}</span></div></a>`}).join("")}</div></div>`:""}
+      ${cov.length?`<div class="sec"><h3>Related coverage</h3><div class="list">${cov.map(storyLi).join("")}</div></div>`:""}
+    </div></div></div>`;
+}
+
+/* =====================================================================
+   NEWSLETTER & STATIC PAGES
+   ===================================================================== */
+function pageNewsletter(){
+  return `<div class="wrap fade">
+    <section class="nl-hero"><div style="position:relative"><div class="eyebrow" style="color:#d9b7a3">Reachworth Weekly · Free · Every Monday</div><h1>The business behind influence, in five minutes.</h1><p>One editorial digest with the week's most useful creator business stories, Index updates and the companies worth following.</p></div>
+      <form class="nl-form" id="nlForm"><label class="flabel" for="nl-email">Email</label><input class="sel" id="nl-email" type="email" required placeholder="you@example.com">
+        <label class="flabel" for="nl-role">I am a… <span style="color:#888;font-weight:400">(optional)</span></label><select class="sel" id="nl-role" style="width:100%"><option value="">Prefer not to say</option><option>Creator</option><option>Founder / operator</option><option>Agency or manager</option><option>Investor</option><option>Brand or platform</option><option>Other</option></select>
+        <button class="btn" style="width:100%;margin-top:16px;height:46px;background:#fff;color:#111">Subscribe free</button>
+        <p style="font-size:12px;color:#8f8a83;margin:10px 0 0">Unsubscribe anytime. We never share your email or treat it as consent for anything else.</p><div class="ok"></div></form></section>
+    <div class="section" style="display:grid;grid-template-columns:1fr;gap:0"><h2 style="margin:10px 0 18px">Archive</h2>
+      ${ISSUES.map((is,i)=>`<details class="issue" ${i===0?"open":""}><summary><span class="datebox" style="width:58px;padding:5px 0"><small>${fmt(D(is.date),{month:"short"})}</small><b style="font-size:22px;margin:3px 0 0">${D(is.date).getDate()}</b></span><div style="flex:1"><div class="meta">Issue #${String(is.n).padStart(3,"0")}</div><h3>${esc(is.title)}</h3></div>${ICON.chev}</summary>
+        <div class="body">${is.items.map(id=>{const s=STORIES.find(x=>x.id===id);return `<a href="#story-${s.id}"><span class="pill">${s.format}</span><span><b>${esc(s.title)}</b> <span class="muted">— ${esc(s.dek)}</span></span></a>`}).join("")}</div></details>`).join("")}
+    </div></div>`;
+}
+function pageAbout(){return `<div class="narrow doc fade"><section class="page-hero" style="padding-left:0"><div class="eyebrow" style="color:var(--clay)">About</div><h1>The business behind <span class="underline">influence.</span></h1><p>Reachworth covers the companies creators build, the people behind them, and how they make money.</p></section>
+  <h2>What we do</h2><p>The Reachworth Index stores the facts. Stories explain them. Tools make them personal, and Events connect the industry. Reachworth Weekly brings it together every Monday.</p>
+  <h2>Who we cover</h2><p>Monetized creators who build, own or invest in businesses, and the operators, agencies and investors working with them. We also cover celebrity and athlete-owned ventures when they involve verifiable ownership or operating roles, and useful business lessons.</p>
+  <h2>Inclusion criteria</h2><ul><li>A creator has a verifiable founder, co-founder, partner, investor or operator role in a company.</li><li>The relationship is supported by at least one public source or confirmed directly with the company.</li><li>Roles and time periods are named wherever they are known.</li></ul>
+  <h2>Independence &amp; Gaply</h2><div class="callout">Reachworth is a media business owned by <b>Gaply</b>. Gaply also runs a separate venture studio that partners with creators. Reachworth covers the industry fairly, including Gaply's competitors and failures. We label sponsorships and Gaply affiliations, we don't sell interview access, and we never pass subscriber or guest information to Gaply's sales team without explicit consent.</div>
+  <p><a class="btn btn-line" href="#methodology">Read our methodology</a> <a class="btn btn-line" href="#contact">Contact &amp; partnerships</a></p></div>`}
+function pageMethodology(){return `<div class="narrow doc fade"><section class="page-hero" style="padding-left:0"><div class="eyebrow" style="color:var(--clay)">Methodology</div><h1>How the Index works.</h1><p>Sources, definitions, estimates, rankings and corrections.</p></section>
+  <h2>Sources</h2><p>Every record stores its source URL, original publication date, last-verified date and an evidence level. Financial figures and ownership relationships are verified by a researcher before publishing. AI may help discover and draft, but it never publishes figures on its own.</p>
+  <h2>Evidence levels</h2><table><tr><th>Label</th><th>Meaning</th></tr><tr><td><span class="ev ev-R" style="margin:0">rep</span> Reported</td><td>Disclosed by the company, a filing or credible reporting.</td></tr><tr><td><span class="ev ev-E" style="margin:0">est</span> Estimated</td><td>A Reachworth estimate based on documented inputs. Shown with “~”.</td></tr><tr><td><span class="und">Undisclosed</span></td><td>Not publicly known. Undisclosed is never treated as zero.</td></tr></table>
+  <h2>Definitions</h2><ul><li><b>Disclosed company value</b> is the combined known valuation of companies a creator founded or co-founded. It is not personal net worth and not the value of their stake.</li><li><b>Capital raised</b> is outside capital raised by those companies. $0 means confirmed bootstrapped.</li><li><b>Businesses</b> counts all tracked founder, partner and investor relationships.</li></ul>
+  <h2>Rankings</h2><p>The Creators view is ordered by number of tracked businesses by default. Value, raised and revenue sorting is available, and undisclosed values always sort last. Every metric shows the date it was last updated.</p>
+  <h2>Corrections</h2><p>Anyone can suggest an edit. Creators and companies can submit corrections with a source. Our editors review every change; nothing publishes automatically.</p>
+  <p><button class="btn btn-dark" data-modal="edit">Suggest an edit</button></p></div>`}
+function pageContact(){return `<div class="narrow doc fade"><section class="page-hero" style="padding-left:0"><div class="eyebrow" style="color:var(--clay)">Contact &amp; Partnerships</div><h1>Get in touch.</h1><p>One inbox for sponsorships, partnerships, story tips, guest suggestions, corrections and support.</p></section>
+  ${intakeForm("")}<div class="callout" style="margin-top:24px"><b>Want to build a business?</b> Venture enquiries go to Gaply's studio, separate from Reachworth editorial. <button class="clear" data-modal="gaply">Apply to build with Gaply →</button></div></div>`}
+function pagePrivacy(){return `<div class="narrow doc fade"><section class="page-hero" style="padding-left:0"><div class="eyebrow" style="color:var(--clay)">Privacy &amp; Terms</div><h1>Your data, plainly.</h1></section>
+  <h2>What we collect</h2><table><tr><th>When</th><th>What we ask</th><th>Why</th></tr><tr><td>Newsletter</td><td>Email; role optional</td><td>Send Reachworth Weekly</td></tr><tr><td>Follow</td><td>Email; interests optional</td><td>Send updates you chose</td></tr><tr><td>Tool report</td><td>Handle; email for the report</td><td>Deliver your report</td></tr><tr><td>Submissions</td><td>Business, role, sources, contact</td><td>Verify information</td></tr></table>
+  <h2>Separate permissions</h2><p>Report delivery, newsletter, advertising and Gaply follow-up are separate permissions. An email address is never treated as blanket consent. Private tool responses never appear on public profiles.</p>
+  <p class="faint">This page is a placeholder. Replace it with your reviewed privacy policy and terms before launch.</p></div>`}
+function notFound(){return `<div class="wrap" style="padding:100px 0;text-align:center"><h1 style="font-size:40px">Page not found</h1><p><a class="btn btn-dark" href="#index">Back to the Index</a></p></div>`}
+
+/* =====================================================================
+   MODALS
+   ===================================================================== */
+const INTAKE_CATS=["Sponsorship","Research enquiry","Media or event partnership","Guest suggestion","Story tip","Submit a business","Submit an event","Edit or removal request","Support"];
+function intakeForm(cat){return `<form class="intake" data-kind="intake">
+  <label class="flabel">What's this about?</label><select class="sel" name="cat" style="width:100%">${INTAKE_CATS.map(c=>`<option ${c===cat?"selected":""}>${c}</option>`).join("")}</select>
+  <div class="row2"><div><label class="flabel">Name</label><input class="sel" required></div><div><label class="flabel">Email</label><input class="sel" type="email" required></div></div>
+  <label class="flabel">Organization <span class="faint" style="font-weight:400">(optional)</span></label><input class="sel">
+  <label class="flabel">Details &amp; links</label><textarea class="sel" required placeholder="Tell us what you need. For businesses and events, include a source or official link."></textarea>
+  <button class="btn btn-dark" style="margin-top:14px;width:100%;height:44px">Send</button><div class="ok"></div></form>`}
+function openModal(kind,ds={}){
+  closeAll();const m=$("#modal");let h="";
+  const head=(t,p)=>`<div class="mh"><div><h2>${t}</h2>${p?`<p>${p}</p>`:""}</div><button class="x" data-close aria-label="Close">×</button></div>`;
+  if(kind==="follow"){const on=follows.has(ds.follow);
+    h=head(`Follow ${esc(ds.name)}`,"Get an email when we publish new figures, funding, launches or coverage.")+`<div class="mb"><form data-kind="follow" data-key="${ds.follow}">
+      <label class="flabel">Email</label><input class="sel" type="email" required placeholder="you@example.com">
+      <label class="consent"><input type="checkbox" checked> Email me updates about ${esc(ds.name)}</label>
+      <label class="consent"><input type="checkbox"> Also send me Reachworth Weekly</label>
+      <button class="btn btn-dark" style="width:100%;margin-top:8px;height:44px">${on?"Update preferences":"Follow"}</button>
+      ${on?`<button type="button" class="btn btn-text" style="width:100%" data-unfollow="${ds.follow}">Unfollow</button>`:""}<div class="ok"></div></form></div>`}
+  if(kind==="share"){const [k,id]=ds.share.split(":");let title,sub,url,metric="";
+    if(k==="company"){const c=CO(id);title=c.name;sub=`${c.sector} · ${c.country}`;url=`/companies/${id}`;metric=c.val!=null?`Valuation ${(c.valEv==="E"?"~":"")+money(c.val)}`:`Raised ${money(c.raised)??"undisclosed"}`}
+    if(k==="creator"){const c=CR(id);title=c.name;sub=`${c.m.count} businesses · ${c.niche}`;url=`/creators/${id}`;metric=c.m.cos.map(l=>l.co.name).slice(0,3).join(" · ")}
+    if(k==="story"){const s=STORIES.find(x=>x.id===id);title=s.title;sub=s.format;url=`/stories/${id}`}
+    if(k==="event"){const e=EVENTS.find(x=>x.id===id);title=e.title;sub=fmt(D(e.start))+" · "+e.city;url=`/events/${id}`}
+    const full=BASE_URL+url;track("share_open",{kind:k,id});
+    h=head("Share","A share card that links to this page.")+`<div class="mb"><div class="sharecard"><svg viewBox="0 0 600 315" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="315" fill="#111"/><circle cx="560" cy="20" r="160" fill="#f6d9c9" opacity=".12"/><text x="40" y="56" fill="#d9b7a3" font-family="Inter,sans-serif" font-size="15" font-weight="700" letter-spacing="2">REACHWORTH INDEX</text><text x="40" y="${title.length>32?140:160}" fill="#fff" font-family="Fraunces,Georgia,serif" font-size="${title.length>32?30:46}" font-weight="600">${esc(title.length>60?title.slice(0,58)+"…":title)}</text><text x="40" y="200" fill="#c9c4bd" font-family="Inter,sans-serif" font-size="18">${esc(sub)}</text><text x="40" y="232" fill="#fff" font-family="Inter,sans-serif" font-size="18" font-weight="600">${esc(metric)}</text><text x="40" y="285" fill="#8f8a83" font-family="Inter,sans-serif" font-size="14">${esc(full.replace("https://",""))}</text></svg></div>
+      <div style="display:flex;gap:8px"><input class="sel" value="${full}" readonly style="flex:1" aria-label="Link"><button class="btn btn-dark" data-copy="${full}">Copy</button></div>
+      <div style="display:flex;gap:8px;margin-top:10px"><a class="btn btn-line" style="flex:1" target="_blank" rel="noreferrer" href="https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(full)}">LinkedIn ↗</a><a class="btn btn-line" style="flex:1" target="_blank" rel="noreferrer" href="https://x.com/intent/post?text=${encodeURIComponent(title+" via @reachworth")}&url=${encodeURIComponent(full)}">X ↗</a></div></div>`}
+  if(kind==="edit"){h=head("Suggest an edit","Corrections are reviewed by an editor before anything is published.")+`<div class="mb"><form data-kind="edit">
+      <label class="flabel">Profile or page</label><input class="sel" value="${esc(ds.target||"")}" required placeholder="Creator, company or story name">
+      <label class="flabel">What needs changing?</label><select class="sel" style="width:100%"><option>Valuation or revenue</option><option>Capital raised</option><option>Ownership or role</option><option>Status (active, acquired, closed)</option><option>People or operators</option><option>Something else</option><option>Removal request</option></select>
+      <label class="flabel">Correct information</label><textarea class="sel" required></textarea>
+      <label class="flabel">Source URL</label><input class="sel" type="url" placeholder="https://" required>
+      <div class="row2"><div><label class="flabel">Your relationship</label><select class="sel" style="width:100%"><option>I am this creator</option><option>I work at this company</option><option>Agency / manager</option><option>Reader</option></select></div><div><label class="flabel">Email for verification</label><input class="sel" type="email" required></div></div>
+      <button class="btn btn-dark" style="width:100%;margin-top:14px;height:44px">Submit for review</button><div class="ok"></div></form></div>`}
+  if(kind==="intake")h=head(ds.cat||"Contact us","We read everything and route it to the right person.")+`<div class="mb">${intakeForm(ds.cat||"")}</div>`;
+  if(kind==="login")h=head("Log in","Only needed for saved follows and reports. All research stays open.")+`<div class="mb"><form data-kind="login"><label class="flabel">Email</label><input class="sel" type="email" required placeholder="you@example.com"><button class="btn btn-dark" style="width:100%;margin-top:12px;height:44px">Email me a sign-in link</button><div class="ok"></div></form></div>`;
+  if(kind==="gaply")h=head("Build a business with Gaply","Gaply is a venture studio, separate from Reachworth editorial. Applying doesn't affect our coverage.")+`<div class="mb"><form data-kind="gaply">
+      <div class="row2"><div><label class="flabel">Name</label><input class="sel" required></div><div><label class="flabel">Email</label><input class="sel" type="email" required></div></div>
+      <label class="flabel">Main channel link</label><input class="sel" type="url" required placeholder="https://">
+      <div class="row2"><div><label class="flabel">Audience size</label><select class="sel" style="width:100%"><option>Under 100K</option><option>100K–500K</option><option>500K–1M</option><option>1M–5M</option><option>5M+</option></select></div><div><label class="flabel">Current monthly revenue</label><select class="sel" style="width:100%"><option>Prefer not to say</option><option>Under $10K</option><option>$10K–$50K</option><option>$50K–$250K</option><option>$250K+</option></select></div></div>
+      <div class="row2"><div><label class="flabel">Able to fund validation?</label><select class="sel" style="width:100%"><option>Yes</option><option>Possibly</option><option>Not yet</option></select></div><div><label class="flabel">Timing</label><select class="sel" style="width:100%"><option>Next 3 months</option><option>3–12 months</option><option>Exploring</option></select></div></div>
+      <label class="consent"><input type="checkbox" required> I'm the decision-maker (or applying with them) and agree to Gaply contacting me about this application.</label>
+      <button class="btn btn-dark" style="width:100%;margin-top:6px;height:44px">Apply to Gaply</button><div class="ok"></div></form></div>`;
+  m.innerHTML=h;m.classList.add("open");$("#overlay").classList.add("open");document.body.style.overflow="hidden";
+  setTimeout(()=>$("input:not([readonly]),select,textarea",m)?.focus(),60);track("modal_open",{kind});
+}
+function closeAll(){["#modal","#overlay","#palette"].forEach(s=>$(s).classList.remove("open"));document.body.style.overflow=""}
+
+/* palette */
+let pSel=0;
+function openPalette(){closeAll();$("#palette").classList.add("open");$("#overlay").classList.add("open");$("#pq").value="";renderPal("");setTimeout(()=>$("#pq").focus(),30)}
+function renderPal(q){$("#pres").innerHTML=searchHTML(q,4);pSel=0;markPal()}
+function markPal(){$$("#pres .pi").forEach((b,i)=>b.classList.toggle("sel",i===pSel));$$("#pres .pi")[pSel]?.scrollIntoView({block:"nearest"})}
+
+/* =====================================================================
+   ROUTER
+   ===================================================================== */
+function render(){
+  const h=location.hash.slice(1)||"index";closeAll();$("#navlinks").classList.remove("open");
+  const app=$("#app");let nav="",title="";
+  const [kind,...rest]=h.split("-"),slug=rest.join("-");
+  if(h==="index"||h==="companies"){app.innerHTML=pageIndex(h==="index"?"creators":"companies");bindIndex();nav="index";title=h==="index"?"":"Companies"}
+  else if(kind==="company"){app.innerHTML=pageCompany(slug);nav="index";title=CO(slug)?.name}
+  else if(kind==="creator"){app.innerHTML=pageCreator(slug);nav="index";title=CR(slug)?.name}
+  else if(h==="stories"){app.innerHTML=pageStories();bindStories();nav="stories";title="Stories"}
+  else if(kind==="story"){app.innerHTML=pageStory(slug);nav="stories";title=STORIES.find(s=>s.id===slug)?.title}
+  else if(h==="tools"){app.innerHTML=pageTools();bindTools();nav="tools";title="How much is your reach worth?"}
+  else if(h==="events"){app.innerHTML=pageEvents();bindEvents();nav="events";title="Events"}
+  else if(kind==="event"){app.innerHTML=pageEvent(slug);nav="events";title=EVENTS.find(e=>e.id===slug)?.title}
+  else if(h==="newsletter"){app.innerHTML=pageNewsletter();title="Reachworth Weekly"}
+  else if(h==="about"){app.innerHTML=pageAbout();title="About"}
+  else if(h==="methodology"){app.innerHTML=pageMethodology();title="Methodology"}
+  else if(h==="contact"){app.innerHTML=pageContact();title="Contact & Partnerships"}
+  else if(h==="privacy"){app.innerHTML=pagePrivacy();title="Privacy & Terms"}
+  else {app.innerHTML=notFound()}
+  $$("[data-nav]").forEach(a=>a.classList.toggle("active",a.dataset.nav===nav));
+  document.title=title?`${title} — Reachworth`:"Reachworth — The business behind influence";
+  window.scrollTo({top:0,behavior:"instant"});track("page_view",{page:h});
+}
+
+/* global handlers */
+document.addEventListener("click",e=>{
+  const t=e.target;
+  const md=t.closest("[data-modal]");if(md){e.preventDefault();openModal(md.dataset.modal,{cat:md.dataset.cat,target:md.dataset.target});return}
+  const fo=t.closest("[data-follow]");if(fo){openModal("follow",{follow:fo.dataset.follow,name:fo.dataset.name});return}
+  const uf=t.closest("[data-unfollow]");if(uf){follows.delete(uf.dataset.unfollow);store.set("rw-follows",[...follows]);closeAll();toast("Unfollowed");refreshFollow();return}
+  const sh=t.closest("[data-share]");if(sh){openModal("share",{share:sh.dataset.share});return}
+  const cp=t.closest("[data-copy]");if(cp){navigator.clipboard?.writeText(cp.dataset.copy).then(()=>toast("Link copied"),()=>toast("Select the link to copy it"));return}
+  const ts=t.closest("[data-toast]");if(ts){toast(ts.dataset.toast);return}
+  if(t.closest("[data-close]")||t.id==="overlay"){closeAll();return}
+  if(t.closest(".pi")&&$("#palette").classList.contains("open"))closeAll();
+});
+function refreshFollow(){$$("[data-follow]").forEach(b=>{if(b.closest("#modal"))return;const on=follows.has(b.dataset.follow);if(b.closest(".pactions")){b.classList.toggle("btn-dark",on);b.classList.toggle("btn-line",!on);b.innerHTML=`${ICON.bell} ${on?"Following":"Follow"}`}})}
+document.addEventListener("submit",e=>{
+  const f=e.target;e.preventDefault();
+  const ok=f.querySelector(".ok")||f.nextElementSibling;const show=m=>{if(ok){ok.textContent=m;ok.style.display="block"}};
+  const DEMO=" (Demo: connect your email platform / CMS to receive this.)";
+  if(f.classList.contains("isign")){track("newsletter_signup",{src:f.dataset.src});show("You're subscribed to Reachworth Weekly."+DEMO);f.reset();return}
+  if(f.id==="nlForm"){track("newsletter_signup",{src:"newsletter_page",role:$("#nl-role").value});show("You're subscribed. Your first issue arrives Monday."+DEMO);f.reset();return}
+  const k=f.dataset.kind;
+  if(k==="follow"){follows.add(f.dataset.key);store.set("rw-follows",[...follows]);track("follow",{key:f.dataset.key});show("Following. We'll email you when something changes."+DEMO);refreshFollow();setTimeout(closeAll,1400)}
+  if(k==="edit"){track("edit_suggested");show("Thanks. An editor will review your suggestion and source."+DEMO);f.reset()}
+  if(k==="intake"){track("intake",{cat:f.cat.value});show(`Thanks. We've routed your “${f.cat.value}” message.`+DEMO);f.reset()}
+  if(k==="login"){show("Check your inbox for a sign-in link."+DEMO)}
+  if(k==="gaply"){track("gaply_application");show("Application received by Gaply's studio team."+DEMO);f.reset()}
+});
+document.addEventListener("keydown",e=>{
+  if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==="k"){e.preventDefault();$("#palette").classList.contains("open")?closeAll():openPalette();return}
+  if(e.key==="/"&&!/input|textarea|select/i.test(document.activeElement.tagName)){e.preventDefault();openPalette();return}
+  if(e.key==="Escape")closeAll();
+  if($("#palette").classList.contains("open")){const items=$$("#pres .pi");
+    if(e.key==="ArrowDown"){e.preventDefault();pSel=Math.min(items.length-1,pSel+1);markPal()}
+    if(e.key==="ArrowUp"){e.preventDefault();pSel=Math.max(0,pSel-1);markPal()}
+    if(e.key==="Enter"){e.preventDefault();items[pSel]?.click()}}
+});
+$("#pq").addEventListener("input",e=>renderPal(e.target.value));
+$("#openPalette").addEventListener("click",openPalette);
+$("#menuBtn").addEventListener("click",()=>{const n=$("#navlinks");n.classList.toggle("open");$("#menuBtn").setAttribute("aria-expanded",n.classList.contains("open"))});
+window.addEventListener("scroll",()=>{const p=$("#progress");if(location.hash.startsWith("#story-")){const h=document.documentElement;p.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+"%"}else p.style.width=0},{passive:true});
+window.addEventListener("hashchange",render);
+render();
+</script>
+</body>
+</html>
